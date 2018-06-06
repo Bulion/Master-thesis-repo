@@ -54,6 +54,9 @@ namespace HoloToolkit.Unity.InputModule
         public bool EnableRotation = true;
         public bool EnableStrafe = true;
 
+        [Tooltip("Makes sure you don't get put 'on top' of holograms, just on the floor")]
+        public bool StayOnTheFloor = false;
+
         public float RotationSize = 45.0f;
         public float StrafeAmount = 0.5f;
 
@@ -62,7 +65,7 @@ namespace HoloToolkit.Unity.InputModule
         private Animator animationController;
 
         [SerializeField]
-        private bool useCustomMapping;
+        private bool useCustomMapping = false;
 
         /// <summary>
         /// The fade control allows us to fade out and fade in the scene.
@@ -76,21 +79,31 @@ namespace HoloToolkit.Unity.InputModule
 
         private void Start()
         {
+            // If we're on the HoloLens or no device is present,
+            // remove this component.
+#if UNITY_2017_2_OR_NEWER
+            if (!XRDevice.isPresent
+#if UNITY_WSA
+                || !HolographicSettings.IsDisplayOpaque
+#endif
+            )
+#else
+            if (VRDevice.isPresent)
+#endif
+            {
+                Destroy(this);
+                return;
+            }
+
+            // FadeManager isn't checked unless we're in a
+            // setup where it might be supported.
             FadeManager.AssertIsInitialized();
 
             fadeControl = FadeManager.Instance;
 
-            // If our FadeManager is missing, or if we're on the HoloLens
-            // Remove this component.
-#if UNITY_2017_2_OR_NEWER
-            if (!XRDevice.isPresent ||
-#if UNITY_WSA
-                !HolographicSettings.IsDisplayOpaque ||
-#endif
-                fadeControl == null)
-#else
-            if (VRDevice.isPresent || fadeControl == null)
-#endif
+            // If the FadeManager is missing,
+            // remove this component.
+            if (fadeControl == null)
             {
                 Destroy(this);
                 return;
@@ -287,11 +300,18 @@ namespace HoloToolkit.Unity.InputModule
         /// <param name="worldPosition"></param>
         public void SetWorldPosition(Vector3 worldPosition)
         {
+            var originalY = transform.position.y;
+
             // There are two things moving the camera: the camera parent (that this script is attached to)
             // and the user's head (which the MR device is attached to. :)). When setting the world position,
             // we need to set it relative to the user's head in the scene so they are looking/standing where 
             // we expect.
-            transform.position = worldPosition - (CameraCache.Main.transform.position - transform.position);
+            var newPosition = worldPosition - (CameraCache.Main.transform.position - transform.position);
+            if (StayOnTheFloor)
+            {
+                newPosition.y = originalY;
+            }
+            transform.position = newPosition;
         }
 
         private void EnableMarker()

@@ -44,9 +44,9 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
-    - holololo_test_pucio
+    - kuka_robot
     dataSetsToActivate:
-    - holololo_test_pucio
+    - kuka_robot
   videoBackground:
     clippingMode: 0
     numDivisions: 2
