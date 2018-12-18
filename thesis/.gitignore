@@ -1,6 +1,7 @@
 # TeX files
 *.aux
 *.fdb_latexmk
+*.blg
 *.fls
 *.log
 *.synctex.gz

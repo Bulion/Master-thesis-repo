@@ -1,0 +1,152 @@
+\documentclass[printmode,en]{mgr}
+%opcje klasy dokumentu mgr.cls zostały opisane w dołączonej instrukcji
+
+%poniżej deklaracje użycia pakietów, usunąć to co jest niepotrzebne
+%\usepackage{polski}       %przydatne podczas składania dokumentów w
+%j. polskim
+\usepackage[english]{babel} %alternatywnie do pakietu
+%polski, wybrać jeden z nich
+\usepackage[utf8]{inputenc} %kodowanie znaków, zależne od systemu
+\usepackage[T1]{fontenc} %poprawne składanie polskich czcionek
+
+%pakiety do grafiki
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{psfrag}
+
+%pakiety dodające dużo dodatkowych poleceń matematycznych
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%pakiety wspomagające i poprawiające składanie tabel
+\usepackage{supertabular}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{hhline}
+
+%pakiet wypisujący na marginesie etykiety równań i rysunków
+%zdefiniowanych przez \label{}, chcąc wygenerować finalną wersję
+%dokumentu wystarczy usunąć poniższą linię
+\usepackage{showlabels}
+
+%definicje własnych poleceń
+\newcommand{\R}{I\!\!R} %symbol liczb rzeczywistych, działa tylko w
+                        %trybie matematycznym
+\newtheorem{theorem}{Twierdzenie}[section] %nowe otoczenie do
+                                           %składania twierdzeń
+
+%dane do złożenia strony tytułowej
+\title{Zastosowanie okularów rozszerzonej rzeczywistości w aplikacjach
+robotycznych}
+\engtitle{Augmented reality goggles in robotic applications}
+\author{Dawid Śliwa}
+\supervisor{dr inż. Janusz Jakubiak, I-6}
+%\guardian{dr hab. inż. Imię Nazwisko Prof. PWr, I-6} %nie używać
+%jeśli opiekun jest tą samą osobą co prowadzący pracę
+
+%\date{2008} %standardowo u dołu strony tytułowej umieszczany jest
+%bieżący rok, to polecenie pozwala wstawić dowolny rok
+
+%poniżej jest lista kierunków i specjalności na wydziale elektroniki,
+%należy wybrać właściwe lub dopisać jeśli nie ma odpowiednich
+\field{Control Engineering and Robotics (AIR)}
+\specialisation{Embedded Robotics (AER)}
+%\specialisation{Komputerowe sieci sterowania (ARK)}
+%\specialisation{Systemy informatyczne w automatyce (ASI)}
+%\specialisation{Komputerowe systemy zarządzania \\procesami
+%produkcyjnymi (ARS)} \field{Elektronika i telekomunikacja (EIT)}
+%\specialisation{Akustyka (ETA)} \specialisation{Aparatura
+%elektroniczna (EAE)} \specialisation{Elektroniczne i komputerowe
+%\\systemy automatyki (ESA)} \specialisation{Zastosowania inżynierii
+%komputerowej \\w technice (EZI)} \specialisation{Inżynieria dźwięku
+%(EID)} \specialisation{Elektronika stosowana \\i optokomunikacja
+%(TEO)} \specialisation{Telekomunikacyjne sieci szerokopasmowe (TSS)}
+%\specialisation{Teleinformatyczne sieci mobilne (TSM)}
+%\specialisation{Sygnały w telekomunikacji cyfrowej (TSC)}
+%\specialisation{Teleinformatyczne systemy rozsiewcze (TSR)}
+%\field{Informatyka (INF)} \specialisation{Systemy informatyki w
+%medycynie \\i technice (IMT)} \specialisation{Inżynieria systemów
+%informatycznych (INS)} \specialisation{Inżynieria internetowa (INT)}
+%\specialisation{Systemy i sieci komputerowe (ISK)}
+%\field{Teleinformatyka (TIN)} \specialisation{Teleinformatyka (TIN)}
+
+%tutaj zaczyna się właściwa treść dokumentu
+\begin{document}
+\bibliographystyle{plabbrv} %tylko gdy używamy BibTeXa, ustawia polski
+                            %styl bibliografii
+
+\maketitle %polecenie generujące stronę tytułową
+
+%\dedication{6cm}{To jest przykładowa treść opcjonalnej dedykacji,
+%  należy ją zmienić lub usunąć w całości polecenie
+%  \texttt{$\backslash$dedication}}
+
+\tableofcontents %spis treści
+
+\chapter{Introduction}
+Robots become more an more often seen in our environment. Starting from nowadays standard industrial applications and ending on home appliances robots. They all have more or less user friendly interface created to programm or control them. In factories can be seen most often stationary or handheld controllers and in consumer appliances, smartphone almost every time is used. Problem is that, this kind of interaction is not natural for humans. For comparison, communication between two employes working together is mostly done by voice, gestures and sometime touch. That is why modern controllers should been using these. This could improve a way of interaction on human-machine level. \\
+
+A few years ago, a revolution called Industry 4.0 began which most important statement was to not replace peoples in factories by machines, but allow them to cooperate at production line. From that time companies are trying to simplyfy teaching process of robots and give them ability to sense the changing environment. Also enhancements are done on the other side. Employees are equipped with many solutions with are extending they perception. This is allowing to get better undersatnding what machines are doing or even see what they are "thinking".
+
+\section{Purpose and scope of work}
+This thesis will focus on Augmented Reality and they ussage in modern factories and research facilities. At the beginning, different types of AR technologies will be compared to give overall view on how this is working. Then industrial or commercial products which are available right now on the market will be presented. The last part of topic studies will try to present selected solutions with are already used in real world applications.\\
+
+Research part of this thesis will try to present simple examples of implementation AR in robotic applications. The topic will cover the issue of planing movement of robotic arm and also controlling and presenting data from mobile robot. This should give more or less understanding what this technology is capable and whats are its current limitations.
+
+
+\chapter{Introduction to Augmented Reality}
+%tutaj można napisac cos o tym gdzie można umiejscowic w przestrzeni augmented reality (relity<->mixed reality<->virtual reality)
+\section{Technology overview}
+%krotki wstep na temat jak dziala w tym momencie AR
+\subsection{Types of image projection}
+%wymienic typy projekcji obrazu
+\subsection{Positioning and location}
+%rodzaje lokalizacji obiektow w scenie i pozycjonowania samych gogli w przestrzeni
+\subsection{User control and interaction}
+%sposoby interakcji uzytkownikow z wirtualnymi obiektami (gesty, głos, kontrolery)
+
+\section{Proucts available on market}
+
+\subsection{Industrial grade}
+
+\subsection{Consumer appliances}
+
+\subsection{Comparison}
+
+\chapter{Applications of Augmented Reality}
+
+
+\chapter{Research of the subject}
+
+\section{Used technologies}
+
+\subsection{Unity}
+
+\subsection{Vuforia}
+
+\subsection{Robotic Operating System}
+
+\section{Test results}
+
+\subsection{Robotic arm}
+
+\subsection{Mobile robot}
+
+
+\chapter{Summary}
+\appendix
+
+
+\addcontentsline{toc}{chapter}{References} %utworzenie w
+                                             %spisietreści pozycji
+                                             %Bibliografia
+
+\bibliography{References} % wstawia bibliografię korzystając z pliku
+                            % bibliografia.bib - dotyczy BibTeXa,
+                            % jeżeli nie korzystamy z BibTeXa należy
+                            % użyć otoczenia thebibliography
+
+%opcjonalnie może się tu pojawić spis rysunków i tabel
+% \listoffigures
+% \listoftables
+\end{document}
