@@ -9,6 +9,8 @@
 \usepackage[utf8]{inputenc} %kodowanie znaków, zależne od systemu
 \usepackage[T1]{fontenc} %poprawne składanie polskich czcionek
 
+\usepackage{hyperref}
+
 %pakiety do grafiki
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -103,16 +105,39 @@ The perception of our surroundings is made to a large extent by the organ of sig
 \begin{figure}[!ht]
   \centering
     \includegraphics[width=0.8\textwidth]{RVContinuum}
-  \caption{Reality-Virtuality (RV) Contunuum}
+  \caption{Reality-Virtuality (RV) Continuum}
   \label{fig:RVContinuum}
 \end{figure}
 
-On the most left side of this line there is our real environment with real objects in no way disturbed by computer graphics. On the other hand on the most right side there is fully 3D generated world with could even in example not holding known by us laws of physics. Between two of those is everything with is mixing one part with another. Depending on what balance is, then we will talk about Augmented Reality or Augmented Virtuality. When there is more real object than virtual ones then it is AR.
+On the most left side of this line there is our real environment with real objects in no way disturbed by computer graphics. On the other hand on the most right side there is Virtual Reality with fully 3D generated world that could even in example not holding known by us laws of physics. Between two of those is everything with is mixing one part with another. Depending on what balance is, then we will talk about Augmented Reality or Augmented Virtuality. For example when there operator is getting some simulated cues to augment his natural feedback then it is AR. When in virtual world appears some real life objects or persons then it is called AV. Good example for that are modern news where reporters are working at green screen and in television they appear in 3D generated studios. As this paper will only discuss topic of using Augmented Reality in robotics applications that is why technical aspects of Augmented Virtuality or Virtual Reality will be not considered.
 
 \section{Technology overview}
-%krotki wstep na temat jak dziala w tym momencie AR
+AR devices can take many different forms but way of processing data is almost always the same. In the simplest way it could be explained as following process. First device need to capture an image and localize itself in environment then mix those data with CG objects and at the end display them on a screen. Figure \ref{fig:ARpipeline} presents this pipeline in graphical form with few additional steps.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.8\textwidth]{ARPipeline}
+  \caption{Simplified AR pipeline}
+  \label{fig:ARpipeline}
+\end{figure}
+
+This section will show different types of technologies with where used at implementation of individual elements of this process.
+
 \subsection{Types of image projection}
 %wymienic typy projekcji obrazu
+There is several way of displaying virtual objects in our environment. Depending on its type they could be more or less immersive for the user.\\
+
+The most popular and the simplest one devices are using video-mixing projection. It involves the use of devices equipped with a camera and standard display to present AR content. In most cases smartphones or tablets are used because they have built-in every needed component and they are very portable. Figure \ref{fig:tabletAR} present example of video-mixed projection. The use of this type of device gives the impression of holding in hands a window in the AR world.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.8\textwidth]{tablet_AR}
+  \caption{Worker using tablet as video-mixing device}
+  \label{fig:tabletAR}
+\end{figure}
+
+
+
 \subsection{Positioning and location}
 %rodzaje lokalizacji obiektow w scenie i pozycjonowania samych gogli w przestrzeni
 \subsection{User control and interaction}
