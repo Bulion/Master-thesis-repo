@@ -178,12 +178,38 @@ Next AR display technology which will be presented is optical see-through. Its p
 
 \subsection{Positioning and location}
 %rodzaje lokalizacji obiektow w scenie i pozycjonowania samych gogli w przestrzeni
+Only small part of AR devices is presenting data that is not depending on real environment obstacles. These include basic versions of HUD and smartglasses. Rest of them need somehow localize itself or detect position of the user. In this section various types of positioning techniques will be presented.\\
+
+Marker-based localization is simplest one. The principle of operation consists in detection of predefined shape or image by the device camera. To achieve this first of all data need to be preprocesed.
+
+Most trivial example is when our marker have square shape. In that case algorithm need only know what is length of side. With this information it is able to calculate position and orientation of the device basing on detected corrners. As the most important are only the edges the center can have any shape. This allow to store some information inside and also help to determinate from with side of rectangle camera is looking. Figure \ref{fig:ARMarker} show detected marker with read associated to it ID number. Pros of this approach is quite low requirement for computational power and easy way to generate many unique ID's. The disadvantage is that the user must print these images and arrange them in their chosen locations.
+
+There is also posibility to track normal images or even 3D objects. In this case there are used algorithms with are extracting some particular features from provided data (Figure \ref{fig:featureExtraction}). Basing on them device could be able to localize itself in space only by looking on for example machine logo. Pros of this approach is better tracking of object even when whole image is not in camera view. Disadvantage is more complex computation.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{ARMarker}
+  \caption{Detected ArUco marker with ID}
+  \label{fig:ARMarker}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.65\linewidth]{featureExtraction}
+  \caption{Image with marked extracted features}
+  \label{fig:featureExtraction}
+\end{subfigure}
+\caption{Example of markers used for localization purposes}
+\label{fig:seeThroughAR}
+\end{figure}
+
+Next discussed type of localization is basing on external devices. There are many possible ways to implement this thing but they could be splited into two major groups whitch is optical or electromagnetic tracking.
 
 \subsection{User control and interaction}
 %sposoby interakcji uzytkownikow z wirtualnymi obiektami (gesty, głos, kontrolery)
 
 \section{Products available on market}
-Head-Mounted Displays are used in most standalone AR devices on the market. They provide the best user experience due to good image quality and possibility of hands-off ussage.
 
 \subsection{Industrial grade}
 
