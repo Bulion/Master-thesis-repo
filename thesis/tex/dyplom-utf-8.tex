@@ -13,8 +13,8 @@
 
 %pakiety do grafiki
 \usepackage{graphicx}
-\usepackage{subfigure}
 \usepackage{psfrag}
+\usepackage{subcaption}
 
 \graphicspath{{../graphics/}}
 
@@ -31,7 +31,7 @@
 %pakiet wypisujący na marginesie etykiety równań i rysunków
 %zdefiniowanych przez \label{}, chcąc wygenerować finalną wersję
 %dokumentu wystarczy usunąć poniższą linię
-\usepackage{showlabels}
+%\usepackage{showlabels}
 
 %definicje własnych poleceń
 \newcommand{\R}{I\!\!R} %symbol liczb rzeczywistych, działa tylko w
@@ -136,7 +136,45 @@ The most popular and the simplest types of projection is video-mixing. It involv
   \label{fig:tabletAR}
 \end{figure}
 
-Second type of projection is slightly different than first one. It is called spatial display. In this case virtual objects are shown directly on real environment surfaces by usage of digital projectors. It could be realised on two way. We could have handheld device with will work similar to flashlight or stationary mounted projector. In first case we could for example inspect virtual paths of transportation robots in warehouses or factory. Also autonomous cars can use their headlights to display information on the road and for instance inform pedestrian that they could safely cross the passage. Stationary projectors are most often used with collaborative robots to display for example some cues for worker which item it will pick-up or where it will place it on shared workspace.
+Second type of projection is slightly different than first one. It is called spatial display. In this case virtual objects are shown directly on real environment surfaces by usage of digital projectors. It could be realised on two way. We could have handheld device with will work similar to flashlight or stationary mounted projector. In first case we could for example inspect virtual paths of transportation robots in warehouses or factory by highlighting floors. Also autonomous cars can use their headlights to display information on the road and for instance inform pedestrian that they could safely cross the passage. Stationary projectors are most often used with collaborative robots. They can display for example some cues for worker which item it will pick-up or where it will place it on shared workspace. Presented types of projection could be seen on Figure \ref{fig:spatialAR}.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{augmentedprojectors}
+  \caption{Augmented projector}
+  \label{fig:augmentedprojectors}
+\end{subfigure}%
+\begin{subfigure}{.4\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{spatialARcowork}
+  \caption{Man and robot coworking}
+  \label{fig:spatialARcowork}
+\end{subfigure}
+\caption{Examples of spatial projection}
+\label{fig:spatialAR}
+\end{figure}
+
+Next AR display technology which will be presented is optical see-through. Its principle of operation boils down to projecting images on partially reflecting surface. This allow to combine real world view with generated graphics which will appear as floating in space holograms. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{HMD}
+  \caption{Head-Mounted Display}
+  \label{fig:headMounted}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{HUD}
+  \caption{Head-Up Display}
+  \label{fig:headUp}
+\end{subfigure}
+\caption{Examples of optical see-through projections}
+\label{fig:seeThroughAR}
+\end{figure}
 
 \subsection{Positioning and location}
 %rodzaje lokalizacji obiektow w scenie i pozycjonowania samych gogli w przestrzeni
@@ -144,6 +182,7 @@ Second type of projection is slightly different than first one. It is called spa
 %sposoby interakcji uzytkownikow z wirtualnymi obiektami (gesty, głos, kontrolery)
 
 \section{Products available on market}
+Head-Mounted Displays are used in most standalone AR devices on the market. They provide the best user experience due to good image quality and possibility of hands-off ussage.
 
 \subsection{Industrial grade}
 
