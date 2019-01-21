@@ -201,10 +201,43 @@ There is also posibility to track normal images or even 3D objects. In this case
   \label{fig:featureExtraction}
 \end{subfigure}
 \caption{Example of markers used for localization purposes}
-\label{fig:seeThroughAR}
+\label{fig:markerBasedLocalization}
 \end{figure}
 
-Next discussed type of localization is basing on external devices. There are many possible ways to implement this thing but they could be splited into two major groups whitch is optical or electromagnetic tracking.
+Next discussed type of localization is based on measurements obtained via external devices. There are many possible implementations of this approach but they could be categorised based upon the working principle.
+
+Optical tracking of passive markers is best known in film industry. It is used in Motion Capture studios to transfer movement of actor to 3D modeled characters. It requires usage of multiple high-speed cameras with infrared illuminators fixed around the measurment area to traingulate a reflective marker position. Successful capture of tracked point by at least two camera give sub-milimeter precision. To avoid situation where marker is occluded by some obstacles localized object could be equipped with redundant ones. Disadvantage of such system is limitation of operating area caused by strength of the reflected light. There is also a way to increase to a certain extent range by using active markers which are light sources but this cause another problems with need to provide power to those.
+
+From optical localization method there are also systems working without any markers. They are based on 3D depth cameras with are providing not only image but also give information about distance from objects. This allow to not only get position of tracked device but also could give feedback about scanned environment. This kind of systems generally have operation distance from 0.5 to 8 meters. Precision of positioning it is inversely proportional to it.
+
+External localization could be also realized by measuring field strength or time of flight of electromagnetic waves. In this case at least three transmiters are needed to estabilish position. This method is slighty less accurate in compare to optical ones but have huge advantage in the form of beeing able to track device without direct visibility. Also range and refresh rate of such systems is significantly larger than optical ones.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{ARMarker}
+  \caption{Motion capture studio}
+  \label{fig:1}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.65\linewidth]{featureExtraction}
+  \caption{3D Camera Depth Data}
+  \label{fig:2}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.65\linewidth]{featureExtraction}
+  \caption{UWB Localization module}
+  \label{fig:3}
+\end{subfigure}
+\caption{Example of markers used for localization purposes}
+\label{fig:markerBasedLocalization}
+\end{figure}
+
+Last presented type of positioning is Simultaneous Localization And Mapping (SLAM). This is technique with is using Laser Range Sensors or 3D Depth cameras to create map of environment. Basing on that data algorithm could calculate position and orientation of device in space.
+
 
 \subsection{User control and interaction}
 %sposoby interakcji uzytkownikow z wirtualnymi obiektami (gesty, głos, kontrolery)
