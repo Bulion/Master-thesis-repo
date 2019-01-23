@@ -156,7 +156,7 @@ Second type of projection is slightly different than first one. It is called spa
 \label{fig:spatialAR}
 \end{figure}
 
-Next AR display technology which will be presented is optical see-through. Its principle of operation boils down to projecting images on partially reflecting surface. This allow to combine real world view with generated graphics which will appear as floating in space holograms. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case. First type presented at image \ref{fig:headMounted} is commonly used in situations where worker need to have both hands free to do his work. At HMD could be shown some step by step instructions or in case operating with robots, live sensors data. Example from image \ref{fig:headUp} show the most common scenario of usage of HUD. Currently they are showing informations about speed and navigation guidance for a driver but in autonomous vehicles they display also some cues what car see and what he intends to do.
+Next AR display technology which will be presented is optical see-through. Its principle of operation boils down to projecting images on partially reflecting surface. This allow to combine real world view with generated graphics which will appear as floating in space holograms. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case. First type presented at image \ref{fig:headMounted} is commonly used in situations where worker need to have both hands free to do his work. At HMD could be shown some step by step instructions or in case operating with robots, live sensors data. Example from image \ref{fig:headUp} show the most common scenario of usage of HUD. They are currently showing informations about speed and navigation guidance for a driver but in autonomous vehicles they could display also some cues what car see and what it intends to do.
 
 \begin{figure}[!ht]
 \centering
@@ -247,7 +247,39 @@ Last presented type of positioning is Simultaneous Localization And Mapping (SLA
 
 \subsection{User control and interaction}
 %sposoby interakcji uzytkownikow z wirtualnymi obiektami (gesty, głos, kontrolery)
+Augmented Reality devices requires different approach to how user should use them. As the worker is no longer limited by his stationary desk there is need to change way of interaction. This section will discuss most common used methods.\\
 
+Simplest HMD devices, where in the field of view we had only displayed text or images there is no need to add special types of interaction. In most cases on frame of device are placed buttons or small touchpad (Figure \ref{fig:swipeGlass}) which allow user to control displayed content. This approach allows to reduce production costs so that it could have lower price tag and be able to get to more customers.
+
+When device is providing ability to observe 3D objects in space then user need some controllers to be able to operate them. On the market most popular ones are using optical tracking (Figure \ref{fig:MRControllers}) but there are also those that uses electromagnetic fields. In addition, all are equipped with 6-DOF sensors to enchence stability of calculated position. This type of input is very precise but requires holding the controller which in some cases may hinder normal work.
+
+The solution to this problem is to recognize gestures and track them (Figure \ref{fig:gestureControl}). This allow to operate with 3D environment while still having both hands free. Detection is carried out using depth cameras. Unfortunately like in case of using SLAM algorithms this method consume a lot of computing power so it is reserved only for the most expensive devices.
+
+The last type of interaction with will be discussed is voice control. It is a very intricate topic due to diversity of humans dialects and accents. With current technology embedded computers can interpret only single words or predefined sentences however, using the resources of cloud services it is possible to extract information from context using natural language processing (NLP) algorithms. The disadvantage of this solution is requirement of continuous access to the Internet and quite slow response.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{swipeGlass}
+  \caption{Touchpad at Google Glass}
+  \label{fig:swipeGlass}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.65\linewidth]{MRControllers}
+  \caption{Mixed Reality Controllers}
+  \label{fig:MRControllers}
+\end{subfigure}\\
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{gestureControl}
+  \caption{Using gesture with Microsoft Hololens}
+  \label{fig:gestureControl}
+\end{subfigure}%
+\caption{Different types of Augmented Reality interactions}
+\label{fig:ARInteraction}
+\end{figure}
 
 \section{Products available on market}
 
