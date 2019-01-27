@@ -9,12 +9,15 @@
 \usepackage[utf8]{inputenc} %kodowanie znaków, zależne od systemu
 \usepackage[T1]{fontenc} %poprawne składanie polskich czcionek
 
+\usepackage{eurosym}
+
 \usepackage{hyperref}
 
 %pakiety do grafiki
 \usepackage{graphicx}
 \usepackage{psfrag}
 \usepackage{subcaption}
+\usepackage{lscape}
 
 \graphicspath{{../graphics/}}
 
@@ -93,7 +96,7 @@ Robots become more an more often seen in our environment. Starting from nowadays
 A few years ago, a revolution called Industry 4.0 began which most important statement was to not replace peoples in factories by machines, but allow them to cooperate at production line. From that time companies are trying to simplyfy teaching process of robots and give them ability to sense the changing environment. Also enhancements are done on the other side. Employees are equipped with many solutions with are extending they perception. This is allowing to get better undersatnding what machines are doing or even see what they are "thinking".
 
 \section{Purpose and scope of work}
-This thesis will focus on Augmented Reality and they ussage in modern factories and research facilities. At the beginning, different types of AR technologies will be compared to give overall view on how this is working. Then industrial or commercial products which are available right now on the market will be presented. The last part of topic studies will try to present selected solutions with are already used in real world applications.\\
+This thesis will focus on Augmented Reality and they usage in modern factories and research facilities. At the beginning, different types of AR technologies will be compared to give overall view on how this is working. Then industrial or commercial products which are available right now on the market will be presented. The last part of topic studies will try to present selected solutions with are already used in real world applications.\\
 
 Research part of this thesis will try to present simple examples of implementation AR in robotic applications. The topic will cover the issue of planing movement of robotic arm and also controlling and presenting data from mobile robot. This should give more or less understanding what this technology is capable and whats are its current limitations.
 
@@ -156,7 +159,7 @@ Second type of projection is slightly different than first one. It is called spa
 \label{fig:spatialAR}
 \end{figure}
 
-Next AR display technology which will be presented is optical see-through. Its principle of operation boils down to projecting images on partially reflecting surface. This allow to combine real world view with generated graphics which will appear as floating in space holograms. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case. First type presented at image \ref{fig:headMounted} is commonly used in situations where worker need to have both hands free to do his work. At HMD could be shown some step by step instructions or in case operating with robots, live sensors data. Example from image \ref{fig:headUp} show the most common scenario of usage of HUD. They are currently showing informations about speed and navigation guidance for a driver but in autonomous vehicles they could display also some cues what car see and what it intends to do.
+Next AR display technology which will be presented is optical see-through. Its principle of operation boils down to projecting images on partially reflecting surface. This allow to combine real world view with generated graphics which will appear as floating in space holograms. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case. First type presented at image \ref{fig:headMounted} is commonly used in situations where worker need to have both hands free to do his work. At HMD could be shown some step by step instructions or in case operating with robots, live sensors data. Example from image \ref{fig:headUp} show the most common scenario of usage of HUD. Nowdays they are showing informations about speed and navigation guidance for a driver but in autonomous vehicles they could display also some cues what car see and what it intends to do.
 
 \begin{figure}[!ht]
 \centering
@@ -182,7 +185,7 @@ Only small part of AR devices is presenting data that is not depending on real e
 
 Marker-based localization is simplest one. The principle of operation consists in detection of predefined shape or image by the device camera. To achieve this first of all data need to be preprocesed.
 
-Most trivial example is when our marker have square shape and high contrast. In that case algorithm need only know what is length of side. With this information it is able to calculate position and orientation of the device basing on detected corrners. As the most important are only the edges the center can have any shape. This allow to store some information inside and also help to determinate from with side of rectangle camera is looking. Figure \ref{fig:ARMarker} show detected marker with read associated to it ID number. Pros of this approach is quite low requirement for computational power and easy way to generate many unique ID's. The disadvantage is that the user must print these images and arrange them in their chosen locations.
+Most trivial example is when our marker have square shape and high contrast. In that case algorithm need only know what is length of side. With this information it is able to calculate position and orientation of the device basing on detected corrners. As the most important are only the edges the center can have any shape. This allow to store some information inside and also help to determinate from with side of square camera is looking. Figure \ref{fig:ARMarker} show detected marker with read associated to it ID number. Pros of this approach is quite low requirement for computational power and easy way to generate many unique ID's. The disadvantage is that the user must print these images and arrange them in their chosen locations.
 
 There is also posibility to track normal images or even 3D objects. In this case there are used algorithms with are extracting some particular features from provided data (Figure \ref{fig:featureExtraction}). Basing on them device could be able to localize itself in space only by looking on for example machine logo. Pros of this approach is better tracking of object even when whole image is not in camera view. Disadvantage is more complex computation.
 
@@ -214,21 +217,21 @@ External localization could be also realized by measuring field strength or time
 
 \begin{figure}[!ht]
 \centering
-\begin{subfigure}{.33\textwidth}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{MoCapStudio}
+  \includegraphics[width=.9\linewidth]{MoCapStudio}
   \caption{Motion capture studio}
   \label{fig:MoCapStudio}
-\end{subfigure}%
-\begin{subfigure}{.33\textwidth}
+\end{subfigure}
+\begin{subfigure}{.45\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{depthData}
+  \includegraphics[width=.82\linewidth]{depthData}
   \caption{3D Camera Depth Data}
   \label{fig:depthData}
-\end{subfigure}
-\begin{subfigure}{.33\textwidth}
+\end{subfigure}\\
+\begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{DWM1000}
+  \includegraphics[width=0.8\linewidth]{DWM1000}
   \caption{UWB Localization module}
   \label{fig:DWM1000}
 \end{subfigure}
@@ -240,7 +243,7 @@ Last presented type of positioning is Simultaneous Localization And Mapping (SLA
 
 \begin{figure}[!ht]
   \centering
-    \includegraphics[width=0.8\textwidth]{SLAMHololens}
+    \includegraphics[width=0.9\textwidth]{SLAMHololens}
   \caption{Room mapped using SLAM algorithm with usage of Microsoft Hololens}
   \label{fig:SLAMHololens}
 \end{figure}
@@ -277,17 +280,57 @@ The last type of interaction with will be discussed is voice control. It is a ve
   \caption{Using gesture with Microsoft Hololens}
   \label{fig:gestureControl}
 \end{subfigure}%
-\caption{Different types of Augmented Reality interactions}
 \label{fig:ARInteraction}
 \end{figure}
 
 \section{Products available on market}
+Augmented reality is still quite young technology. Omitting the fact that it was used in the army and civil aviation since the 1960s, it is now becoming available to industry and individual users. There are more and more companies trying their strength in this sector on the market. They use a variety of image display and interaction technologies, and develop newer and newer solutions. This section will show few choicen AR devices and softwares.
 
-\subsection{Industrial grade}
+\subsection{Hardware devices}
+The devices presented at table \ref{tab:hardwareDevices} are currently focused mainly on B2B cooperation. High prices and low maturity of the technology to the consumer market have an impact on this. Also there is no one unified environment between them so all applications are written to fulfill specific case. However, some devices can be bought in normal sales, so it is not a closed market for a regular customer.
 
-\subsection{Consumer appliances}
+\subsection{Software solutions}
+The cheapest entry level to AR world is use of dedicated SDK's on computer, smartphone or tablet. On the market there are many ready to use solutions which cover different use cases. Most of them are commercial products, but there are also some open-source one. Table \ref{tab:ARSoftware} shows the collected information about several of them.
 
-\subsection{Comparison}
+%\resizebox{\linewidth}{!}{%
+
+\begin{landscape}
+\begin{table}[]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|l|l|l|l|l|l|l|l|l|l|}
+\hline
+Device name                                                                  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Type of\\ projection\end{tabular}}                          & \multicolumn{1}{c|}{Hardware}                                                                                            & \multicolumn{1}{c|}{Sensors}                                                                                                                                                       & \multicolumn{1}{c|}{Connectivity}                                                                                  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Battery\\ (life time)\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Mechanical\\ parameters\end{tabular}}                                       & \multicolumn{1}{c|}{User input}                                                                             & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Operating\\ system\end{tabular}} & \multicolumn{1}{c|}{Capabilities}                                                                                                                & Price   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Microsoft \\ Hololens\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1920x1200 px per eye\\ 40 degrees view angle\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intel x86 CPU\\ Holographic Processing Unit\\ 2 GB RAM\\ 64 GB storage\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Depth Sensor Camera\\ 2MP Video Camera\\ 4x environment understanding cameras\\ IMU\\ Ambient Light Sensor\\ Microphone\\ Onboard Speakers\end{tabular} & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11ac\\ Bluetooth® 4.1 LE\\ 3.5mm Jack\\ micro-USB\end{tabular}                & \begin{tabular}[c]{@{}l@{}}4500 mAh\\ 2-3 hours\end{tabular}                       & \begin{tabular}[c]{@{}l@{}}Weight: 579 g\\ Adjustable head band\end{tabular}                                               & \begin{tabular}[c]{@{}l@{}}Gesture input\\ Wireless clicker\\ Voice support\\ Buttons on frame\end{tabular} & Windows™ 10                                                                     & \begin{tabular}[c]{@{}l@{}}Spatial sound\\ Gaze tracking\\ 6-DOF tracking\\ Mapping of environment\\ Teleoperation\end{tabular}                  & \$4500  \\ \hline
+\begin{tabular}[c]{@{}c@{}}Epson \\ MOVERIO PRO \\ BT-2000/2200\end{tabular} & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 960x540 px per eye\\ 23 degrees view angle\end{tabular}   & \begin{tabular}[c]{@{}l@{}}TI OMAP 4460 1,2 GHz\\ 1 GB RAM\\ 8 GB internal storage\\ 32 GB external microSD\end{tabular} & \begin{tabular}[c]{@{}l@{}}5MP Stereo Camera\\ GPS\\ IMU\\ Ambient Light Sensor\\ Geomagnetic Sensor\\ Microphone\end{tabular}                                                     & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 b/g/n/a\\ Bluetooth® 3.0 \& BLE\\ 3.5mm Jack\\ micro-USB\end{tabular}      & \begin{tabular}[c]{@{}l@{}}2x 1240 mAh\\ $\sim$4 hours\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Weight: 270-290 g\\ Depending on version:\\ - adjustable head band\\ - rubber band\end{tabular} & \begin{tabular}[c]{@{}l@{}}Wired controller\\ Voice support\end{tabular}                                    & Android™ 4.0.4                                                                  & \begin{tabular}[c]{@{}l@{}}Teleoperation\\ 6-DOF tracking\\ Task guidience\end{tabular}                                                          & \$2000  \\ \hline
+\begin{tabular}[c]{@{}c@{}}DAQRI \\ Smart Glasses\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1360x768 px per eye\\ 44 degrees view angle\end{tabular}  & \begin{tabular}[c]{@{}l@{}}6th Intel® Core™ m7\\ Dedicated vision processing unit\\ 64 GB storage\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Color Camera\\ AR Tracking Camera\\ Depth Sensor Camera\\ IMU\\ 2 Microphones with\\ Active Noise Cancellation\end{tabular}                             & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 a/b/g/n/ac\\ Bluetooth®\\ 2 USB 3.1 Type C Ports\\ 3.5mm Jack\end{tabular} & 5800 mAh                                                                           & \begin{tabular}[c]{@{}l@{}}Smart Glasses: 335 g\\ Compute Pack: 496 g\\ Adjustable head band\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}Gesture input\\ Voice support\end{tabular}                                       & Custom solution                                                                 & \begin{tabular}[c]{@{}l@{}}Mapping of environment\\ Teleoperation\\ 6-DOF tracking\end{tabular}                                                  & Unknown \\ \hline
+\begin{tabular}[c]{@{}c@{}}ARVIND SANJEEV\\ LUMEN\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Projection based\\ 640x360px\\ screen size: 10"-112"\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Broadcom BCM2835 1GHz\\ 512 MB RAM\\ 32 GB external microSD\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}Color Camera\\ Depth Sensor Camera\end{tabular}                                                                                                         & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 b/g/n\\ Bluetooth® 4.1 LE\\ micro-USB\end{tabular}                         & \begin{tabular}[c]{@{}l@{}}1800 mAh\\ $\sim$30 min\end{tabular}                    & Unknown                                                                                                                    & Gesture input                                                                                               & Linux                                                                           & \begin{tabular}[c]{@{}l@{}}Objects recognition\\ Mapping of environment\end{tabular}                                                             & Unknown \\ \hline
+\begin{tabular}[c]{@{}c@{}}Light Guide Systems\\ Classic\end{tabular}        & Projection based                                                                                           & Any PC                                                                                                                   & Color camera                                                                                                                                                                       & \begin{tabular}[c]{@{}l@{}}HDMI\\ USB\end{tabular}                                                                 & AC Powered                                                                         & Unknown                                                                                                                    & Camera feedback                                                                                             & Windows™                                                                        & \begin{tabular}[c]{@{}l@{}}Augmentation of workstation\\ Task guidience\\ Automatic part assembly check\\ Production time recording\end{tabular} & Unknown \\ \hline
+\begin{tabular}[c]{@{}c@{}}Magic Leap\\ One\end{tabular}                     & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1280x960 px per eye\\ 50 degrees view angle\end{tabular}  & \begin{tabular}[c]{@{}l@{}}CPU: NVIDIA® Parker\\ GPU: NVIDIA Pascal™\\ 8 GB RAM\\ 128 GB Storage\end{tabular}            & \begin{tabular}[c]{@{}l@{}}Depth camera\\ Environment understanding cameras\\ IMU\\ Microphone\\ Onboard Speakers\end{tabular}                                                     & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11ac/b/g/n\\ Bluetooth® 4.2\\ USB-C\end{tabular}                              & $\sim$3 hours                                                                      & Weight: 345 g                                                                                                              & \begin{tabular}[c]{@{}l@{}}Gesture input\\ 6-DOF tracked controllers\\ Voice support\end{tabular}           & Lumin OS                                                                        & \begin{tabular}[c]{@{}l@{}}Mapping of environment\\ Teleoperation\\ 6-DOF tracking\end{tabular}                                                  & \$2,295 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Google Glass\\ Enterprise Edition\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 640×360 px\end{tabular}                                   & \begin{tabular}[c]{@{}l@{}}Intel Atom processor\\ 2 GB RAM\\ 32 GB storage\end{tabular}                                  & \begin{tabular}[c]{@{}l@{}}5 MP camera\\ IMU\\ Ambient Light Sensor\\ GPS \& GLONASS\\ Barometer\\ Bone conduction transducer\end{tabular}                                         & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11n/ac\\ Bluetooth®\end{tabular}                                              & \begin{tabular}[c]{@{}l@{}}780 mAh\\ $\sim$8 hours\end{tabular}                    & Weight: 36g                                                                                                                & \begin{tabular}[c]{@{}l@{}}Voice commands\\ Touchpad\\ Mobile app\end{tabular}                              & Android™ 4.4                                                                    & \begin{tabular}[c]{@{}l@{}}Teleoperation\\ Assistant\\ Task guidience\end{tabular}                                                               & \$1,500 \\ \hline
+\end{tabular}%
+}
+\caption{List of selected AR goggles models}
+\label{tab:hardwareDevices}
+\end{table}
+\end{landscape}
+
+\begin{landscape}
+\begin{table}[]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Year & 2000 & 2001 & 2002 & 2003 & 2004 & 2005 & 2006 & 2007 & 2008 & 2009 & 2010 \\
+\hline
+GPD in billions & 235  &  225 bn & 223 bn & 323 & 423  & 523 & 624 & 725 & 826  & 924  & 1022  \\
+\hline
+\end{tabular}
+}
+\caption{Placeholder}
+\label{tab:ARSoftware}
+\end{table}
+\end{landscape}
 
 \chapter{Applications of Augmented Reality}
 
