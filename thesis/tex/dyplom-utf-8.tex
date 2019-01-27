@@ -333,7 +333,23 @@ GPD in billions & 235  &  225 bn & 223 bn & 323 & 423  & 523 & 624 & 725 & 826  
 \end{landscape}
 
 \chapter{Applications of Augmented Reality}
+This part of thesis will be presenting some founded on internet publications about using AR in robotics applications. It should give a pretty good look at what this technology is created for and suggest what areas have not yet been researched.
 
+\section{ARDebug}
+The first issue raised will be the use of AR to visualize the parameters of individual robotic swarm units basing on research paper created by scientists from York Robotics Laboratory. The tool presented by them could help to easier find bugs in implemented algorithms by giving real-time visual feedback basing on each robot state.
+
+The configuration of the environment requires the use of a locating system. Researchers for this purposes used an 5 MP camera which was placed 2.5 m above center of operating area and the ArUco markers placed on robots. Then, using the algorithms built into the OpenCV library, they determine their position. The data obtained in this way was packed in the JSON structure with is accepted by ARDebug application. Authors deliberately chose this format to allow easy integration of other location methods.
+
+Another element required by the application is data of the status of each robot. They must also be provided in JSON format over Wi-Fi or Bluetooth to the supervising computer.
+
+After collecting all the information ARDebug imposes on video from camera, data acquired from tracking system and robot. Additionally, it presents them in the form of tables with key value representation and graphs. Examlpe view from this programm is presented at figure \ref{fig:ARDebug}.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{ARDebug}
+  \caption{The ARDebug user interface}
+  \label{fig:ARDebug}
+\end{figure}
 
 \chapter{Research of the subject}
 
