@@ -1,3 +1,127 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{Lumen}
+{ARVIND SANJEEV} lumen.
+\newblock \url{http://arvindsanjeev.com/lumen.html}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{HUD}
+{Continental} head-up displays.
+\newblock \url{http://continental-head-up-display.com/}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{DAQRI}
+{DAQRI} smart glasses.
+\newblock \url{https://daqri.com/products/smart-glasses/}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{DWM1000}
+Dwm1000 module.
+\newblock \url{https://www.decawave.com/product/dwm1000-module/}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{MOVERIOPRO}
+{Epson} moverio pro bt-2200.
+\newblock
+  \url{https://www.epson.pl/products/see-through-mobile-viewer/moverio-pro-bt-2200}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{Glass}
+{Google} glass.
+\newblock \url{https://www.x.company/glass/}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{swipeGlass}
+{Google Glass} uses and features.
+\newblock \url{https://sites.google.com/site/g00g13g1a55/google-glass}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{depthData}
+Kinect – opensource [news]creativeapplications.net.
+\newblock
+  \url{https://doomicile.de/story/kinect-opensource-newscreativeapplicationsnet}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{LGS}
+{Light Guide Systems} classic.
+\newblock
+  \url{https://lightguidesys.com/products/light-guide-systems-classic/}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{MagicLeap}
+{Magic Leap} one.
+\newblock \url{https://www.magicleap.com/magic-leap-one}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{gestureControl}
+{Microsoft Hololens} gestures.
+\newblock
+  \url{https://docs.microsoft.com/en-us/windows/mixed-reality/gestures}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{MRControllers}
+{MS Hololens} hardware accessories.
+\newblock
+  \url{https://docs.microsoft.com/en-us/windows/mixed-reality/hardware-accessories}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{HololensHW}
+{MS Hololens} hardware details.
+\newblock
+  \url{https://docs.microsoft.com/en-us/windows/mixed-reality/hololens-hardware-details}.
+\newblock Accessed: 29-01-2019.
+
+\bibitem{ArUco}
+A.~Babinec, L.~Jurišica, P.~Hubinský, F.~Duchoň.
+\newblock Visual localization of mobile robot using artificial markers.
+\newblock {\em Procedia Engineering}, 96, 12 2014.
+
+\bibitem{MoCap}
+M.~Field, D.~Stirling, F.~Naghdy, Z.~Pan.
+\newblock Motion capture in robotics review.
+\newblock {\em 2009 IEEE International Conference on Control and Automation},
+  strony 1697--1702, Dec 2009.
+
+\bibitem{Shipyard}
+P.~Fraga-Lamas, T.~M. Fernández-Caramés, .~Blanco-Novoa, M.~A.
+  Vilar-Montesinos.
+\newblock A review on industrial augmented reality systems for the industry 4.0
+  shipyard.
+\newblock {\em IEEE Access}, 6:13358--13375, 2018.
+
+\bibitem{SpatialARCollaborative}
+Z.~Materna, M.~Kapinus, V.~Beran, P.~Smrz, P.~Zemcík.
+\newblock Interactive spatial augmented reality in collaborative robot
+  programming: User experience evaluation.
+\newblock strony 80--87, 08 2018.
+
+\bibitem{RVContinuum}
+P.~Milgram, H.~Takemura, A.~Utsumi, F.~Kishino.
+\newblock Augmented reality: A class of displays on the reality-virtuality
+  continuum.
+\newblock {\em Telemanipulator and Telepresence Technologies}, 2351, 01 1994.
+
+\bibitem{ARDebug}
+A.~Millard, R.~Redpath, A.~M.~Jewers, C.~Arndt, R.~Joyce, J.~Hilder, L.~Mcdaid,
+  D.~M.~Halliday.
+\newblock Ardebug: An augmented reality tool for analysing and debugging swarm
+  robotic systems.
+\newblock {\em Frontiers in Robotics and AI}, 5:87, 07 2018.
+
+\bibitem{augmentedprojectors}
+D.~Molyneaux, S.~Izadi, D.~Kim, O.~Hilliges, S.~Hodges, X.~Cao, A.~Butler,
+  H.~Gellersen, A.~Butler, D.~Molyneaux, O.~Hilliges, S.~Izadi, S.~Hodges,
+  X.~Cao.
+\newblock Interactive environment-aware handheld projectors for pervasive
+  computing spaces.
+\newblock {\em Pervasive Computing}, strony 197--215, January 2012.
+
+\bibitem{ARGoS}
+A.~Reina, M.~Salvaro, G.~Francesca, L.~Garattoni, C.~Pinciroli, M.~Dorigo,
+  M.~Birattari.
+\newblock Augmented reality for robots: Virtual sensing technology applied to a
+  swarm of e-pucks.
+\newblock {\em 2015 NASA/ESA Conference on Adaptive Hardware and Systems
+  (AHS)}, strony 1--6, June 2015.
 
 \end{thebibliography}
