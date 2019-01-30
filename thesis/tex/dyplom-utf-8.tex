@@ -377,7 +377,9 @@ Researchers to test different solutions have created a easy to deploy and modula
   \label{fig:spatialARdesk}
 \end{figure}
 
-Prepared elements allow to use shared workspace as an interactive display
+Prepared elements changes shared workspace into interactive display. Thanks to this, the employee can mark the work areas of the robot in a very intuitive way and give him instructions by using simple GUI. Also this approach allows him to continuously observe what decisions robot is making without looking away from his job.
+
+The authors carried out research on a group of people to check whether the applied solution introduces a sense of safety when working with collaborative robots. It finds out that almost every participant assessed positively their work, however they also point out that GUI should be improved.
 
 \chapter{Research of the subject}
 The aim of the study was to investigate the possibility of using augmented reality in robotics. For this purpose, several issues related to stationary and mobile robots were selected.
@@ -418,8 +420,18 @@ The decision to use this software was made for two reasons. The first one was ea
 \subsection{Robotic Operating System}
 Both of used in this research robots was controlled by Robotic Operating System. It is open-source platform with provide software libraries and tools for building robot applications.
 
-The principle of ROS operation is based on the idea of running many nodes which each of it is representing some behavior. In example one of them could read some sensor data, process it and at the end share it with others. Communication system between nodes is based on an anonymous publish/subscribe mechanism. Thanks to that we get a flexible platform which allows us to configure any data flow we want.
+The principle of ROS operation is based on the idea of running many nodes which each of it is representing some behavior. In example one of them could read some sensor data, process it and at the end share it with others. Communication system between nodes is based on anasynchronous anonymous publish/subscribe mechanism (Figure \ref{fig:ros}). Thanks to that we get a flexible and modular platform which allows us to configure any data flow we want. However, not all operations can be performed in an asynchronous manner. To this end, ROS also provides a synchronous request/response mechanism called services.
 
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{ros}
+  \caption{ROS publish/subscribe mechanism}
+  \label{fig:ros}
+\end{figure}
+
+Another great feature is also ability to record and playback messages. As the data in system is shared by publish/subscribe mechanism there is easy way to capture them in example on real robots and then replay on offline machine without any changes in code. In combination with tools like rviz we are able to recreate and visualize all robots behaviors without having access to them.
+
+Connection between ROS and external system could be realized by ROSBridge. This library is able to create server which could send and receive data in JSON format. Each frame is containing object name, topic/service name, messageType and optional payload. Such a simple solution allows for easy implementation of the client on any device. That is why this tool was used in the research to be able to exchange data between ROS and Unity Engine.
 
 
 \section{Test results}
