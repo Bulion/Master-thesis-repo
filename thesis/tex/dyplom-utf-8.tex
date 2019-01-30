@@ -365,11 +365,39 @@ Whole process could be viewed in three perspectives. First one is virtual enviro
   \label{fig:ARGoS}
 \end{figure}
 
+\section{Interactive Spatial AR in Collaborative Robot Programming}
+Scientists from Brno University of Technology decided to explore the subject of human cooperation with the machine. In their paper \cite{SpatialARCollaborative} described was concept of utilization of shared workspace as a interactive space with could be used to visualize and control movements of collaborative robot. The goal was to create system which will simplify programming to such level that every ordinary skilled worker could customize robot's behavior and adopt it to current work or preferences.
+
+Researchers to test different solutions have created a easy to deploy and modular stand. It consisted of standard workshop table with capacitive touch foil on it, PR2 collaborative robot, Microsoft Kinect V2 depth sensors, two speakers and truss with projector hanging on it. Complete setup could be seen on figure \ref{fig:spatialARdesk}.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{spatialARdesk}
+  \caption{Setup of collaborative workshop desk \cite{SpatialARCollaborative}}
+  \label{fig:spatialARdesk}
+\end{figure}
+
+Prepared elements allow to use shared workspace as an interactive display
+
 \chapter{Research of the subject}
+The aim of the study was to investigate the possibility of using augmented reality in robotics. For this purpose, several issues related to stationary and mobile robots were selected.
+
+In the first case, it was decided to create an user interface that would allow to remotely control the position of the robotic arm using gestures. Thanks to this, working from a safe distance, the operator is able to set a trajectory of motion along the points, simultaneously observing the behavior of the machine.
+
+In the case of mobile robots, the topics of visualization of sensory data and route planning were examined. Displaying in real time sensors reading in user environment could help with debuging some hardware or software issues. Also being able to see waypoints of robot on the floor could help to check if it will not hit any obstacle.
 
 \section{Used technologies}
+In order to implement selected tasks, it was decided to use the augmented reality goggles for this purpose. The choice fell on Microsoft Hololens due to the good performance, tracking quality and the ability to loan them for testing. Picture of them could be seen on figure \ref{fig:hololensGoggles}. Technical parameters was presented earlier in the table \ref{tab:hardwareDevices}.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{hololensGoggles}
+  \caption{Picture presenting Microsoft Hololens AR Googles \cite{hololensGoggles}}
+  \label{fig:hololensGoggles}
+\end{figure}
 
 \subsection{Unity}
+Application for Hololens could be written in every programming language with has support for Universal Windows Platform API. However, due to the fact that goggles are working in a 3D environment, developer also need a graphics engine to be able to create objects in 3D space. Here Unity comes with the help along with the whole set of libraries called HoloToolkit provided by Microsoft.
 
 \subsection{Vuforia}
 
