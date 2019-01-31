@@ -438,6 +438,15 @@ Connection between ROS and external system could be realized by ROSBridge. This 
 \subsection{Robotic arm}
 The tools presented in the previous section were used to implement the task set at the beginning of the chapter. Thanks to the created application, the user is able to move the virtual object in space by means of gestures, which is then followed by the effector of the robotic arm. The selected positions could be memorized and in this way motion sequences could be created.
 
+The robot used in this part is called Dobot Magician \cite{dobot}. This is simple desk robotic arm with 3 degrees of freedom and the possibility of replacing the effectors. All axis are driven by stepper motors so before use in needs firstly perform homeing action. It could be seen at figure \ref{fig:dobot}.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{dobot}
+  \caption{Dobot Magician robotic arm \cite{dobot}}
+  \label{fig:dobot}
+\end{figure}
+
 As mentioned before, the application was created in Unity using the Holotoolkit library. As far as the supplied elements allowed for trouble-free operation of the peripherals provided by goggle sensors, connecting them with ROS required adding one's own module. It was written as a C\# script, in which the websocket connection to the ROSBridge server was opened. Then there was need to create protocol layer which will pack data into proper JSON messages. Their use allowed creating two-way communication between the robot and the application in Unity.
 
 With the ability to exchange data with ROS, implementations of the basic assumptions have started. Initially, the coordinate systems of the robot and goggles had to be synchronized so that the objects oriented in the virtual space would correspond to reality. For this purpose, the aforementioned Vuforia library was used. Created marker need to be placed in exact same position in front of robotic arm as it was setted in Unity 3D environment. Thanks to that all objects will appear just in a right spot.
@@ -464,16 +473,46 @@ After application was able to receive an position from the robot, a part of the 
 \label{fig:armMove}
 \end{figure}
 
-Last part of the task was to give ability to store setted positions, draw path between them and at the end be able to automatically replay sequence of movements. For this purpose an click gesture was used. When user set desired position by draging followed by robot object then he could click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is visualized between the next steps to present the movement of the robot.
+Last part of the task was to give ability to store setted positions, draw path between them and at the end be able to automatically replay sequence of movements. For this purpose an click gesture was used. When user set desired position by draging followed by robot object then he could click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot.
 
 \subsection{Mobile robot}
+In this part of research, connection between Unity and ROS was done in the same way like in case of robotic arm. The only difference between them was number of supported messages types. It was need to be extend to be able to receive sensors data.
 
+This task required one basic assumption, that is, the robot had to be able to locate itself. Unfortunately, the camera built into the Hololens does not have a very high resolution so that it would not be able to provide location information in sufficient accuracy. Therefore, the marker on the robot only serves to synchronize the coordinate systems with goggles. Again like in robotic arm experiment it is detected by Vuforia Engine.
+
+Robot used in this part of research is called TurtleBot3 Waffle \cite{turtlebot}. This is a open-source, open-hardware modular platform which allow to quickly test new ideas and algorithms. His heart is Raspberry Pi 3 with ROS installed on it. Two digital servos from dynamixel are used to drive the wheels. It also has LiDAR installed. Picture of robot could be find at figure \ref{fig:turtlebot}.
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{turtlebot}
+  \caption{Turtlebot3 Waffle robot}
+  \label{fig:turtlebot}
+\end{figure}
+
+First, the task related to the visualization of sensory data was carried out. Based on the fact that reading information from the robot had already been developed, it was quite easy to get to it. After connection is estabilish and data is accquired script which was written is generating small spheres and pushes them away from the center of LiDAR at a distance read from the ROS. This give us visual feedback which objects could be seen by given sensor. In this case LiDAR beam could not detect glass doors (Figure \ref{fig:glassDoor}).
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.9\textwidth]{glassDoor}
+  \caption{Visualization of LiDAR sensor data}
+  \label{fig:glassDoor}
+\end{figure}
+
+The second task was quite similar to what was done with the robot arm. Prepared application allowed to mark points on the floor to which the robot has to go. From Unity side it was quite easy task. The more complex work was done on robot, because he need to calculate path to be able to reach that point. Fortunately, the built-in ROS libraries came to the rescue and they are able to do this job quite well. The results of this work could be seen at figure \ref{turtlebotMove}.
 
 \chapter{Summary}
+Augmented Reality is super fast growing technology. It allows creating more intuitive user interfaces due to the ability to generate spatial objects. Thanks to its use, it is possible to facilitate a lot of production processes as well as increase work safety. Of course, the use of this technology is much wider than just industrial applications.
+
+Unfortunately, devices that give the best results at the moment are too expensive for the average user and often too uncomfortable to use on a daily basis. Another reason for the low popularity of this technology beyond the price and comfort is still insufficient computing power to generate decent quality materials and problems with the projection of the image with a wide viewing angle. In addition, often the detection of gestures is not as precise as expected by the user. However, thanks to the increasing use of this technology in the industry, newer and newer solutions are introduced which helps to improve all aspects of this technology.
+
+Who knows, it's possible that in the near future these devices will be as popular as today's smartphones and maybe even take over their role.
+
+
+
 \appendix
 
 
-\addcontentsline{toc}{chapter}{References} %utworzenie w
+\addcontentsline{toc}{chapter}{Bibliography} %utworzenie w
                                              %spisietreści pozycji
                                              %Bibliografia
 
