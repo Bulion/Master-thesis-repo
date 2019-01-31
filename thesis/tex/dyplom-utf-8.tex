@@ -433,10 +433,38 @@ Another great feature is also ability to record and playback messages. As the da
 
 Connection between ROS and external system could be realized by ROSBridge. This library is able to create server which could send and receive data in JSON format. Each frame is containing object name, topic/service name, messageType and optional payload. Such a simple solution allows for easy implementation of the client on any device. That is why this tool was used in the research to be able to exchange data between ROS and Unity Engine.
 
-
 \section{Test results}
 
 \subsection{Robotic arm}
+The tools presented in the previous section were used to implement the task set at the beginning of the chapter. Thanks to the created application, the user is able to move the virtual object in space by means of gestures, which is then followed by the effector of the robotic arm. The selected positions could be memorized and in this way motion sequences could be created.
+
+As mentioned before, the application was created in Unity using the Holotoolkit library. As far as the supplied elements allowed for trouble-free operation of the peripherals provided by goggle sensors, connecting them with ROS required adding one's own module. It was written as a C\# script, in which the websocket connection to the ROSBridge server was opened. Then there was need to create protocol layer which will pack data into proper JSON messages. Their use allowed creating two-way communication between the robot and the application in Unity.
+
+With the ability to exchange data with ROS, implementations of the basic assumptions have started. Initially, the coordinate systems of the robot and goggles had to be synchronized so that the objects oriented in the virtual space would correspond to reality. For this purpose, the aforementioned Vuforia library was used. Created marker need to be placed in exact same position in front of robotic arm as it was setted in Unity 3D environment. Thanks to that all objects will appear just in a right spot.
+
+Next task was to create a 3D cube and bind its position with the position of the robot effector taken from ROS. This test allowed to observe that the coordinate axes of the robot are pointing in other directions than Unity one's. To facilitate the later work, another script dealing with bidirectional transformation was written.
+
+After application was able to receive an position from the robot, a part of the code allowing its setting was written. In this case gesture recognition module from HoloToolkit library was used. It allows to capture event when particular gesture is occuring and extract from it information about relative position of hand. Using this from the perspective of the code, we are able to add a hand translation vector to the position vector of the selected object which will appear as its shift in space. This allow to move previously created cube, then reads it position and at the end write it to robot. That part works very well. On figure \ref{fig:armMove} could be seen screenshots from hololens with different positions setted.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{armMove1}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{armMove2}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{armMove3}
+\end{subfigure}%
+\caption{Setting robotic arm position by gesture}
+\label{fig:armMove}
+\end{figure}
+
+Last part of the task was to give ability to store setted positions, draw path between them and at the end be able to automatically replay sequence of movements. For this purpose an click gesture was used. When user set desired position by draging followed by robot object then he could click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is visualized between the next steps to present the movement of the robot.
 
 \subsection{Mobile robot}
 
