@@ -420,7 +420,7 @@ The decision to use this software was made for two reasons. The first one was ea
 \subsection{Robotic Operating System}
 Both of used in this research robots was controlled by Robotic Operating System. It is open-source platform with provide software libraries and tools for building robot applications.
 
-The principle of ROS operation is based on the idea of running many nodes which each of it is representing some behavior. In example one of them could read some sensor data, process it and at the end share it with others. Communication system between nodes is based on anasynchronous anonymous publish/subscribe mechanism (Figure \ref{fig:ros}). Thanks to that we get a flexible and modular platform which allows us to configure any data flow we want. However, not all operations can be performed in an asynchronous manner. To this end, ROS also provides a synchronous request/response mechanism called services.
+The principle of ROS operation is based on the idea of running many nodes which each of it is representing some behavior. In example one of them could read some sensor data, process it and at the end share it with others. Communication system between nodes is based on asynchronous anonymous publish/subscribe mechanism (Figure \ref{fig:ros}). Thanks to that we get a flexible and modular platform which allows us to configure any data flow we want. However, not all operations can be performed in an asynchronous manner. To this end, ROS also provides a synchronous request/response mechanism called services.
 
 \begin{figure}[!ht]
   \centering
@@ -438,7 +438,7 @@ Connection between ROS and external system could be realized by ROSBridge. This 
 \subsection{Robotic arm}
 The tools presented in the previous section were used to implement the task set at the beginning of the chapter. Thanks to the created application, the user is able to move the virtual object in space by means of gestures, which is then followed by the effector of the robotic arm. The selected positions could be memorized and in this way motion sequences could be created.
 
-The robot used in this part is called Dobot Magician \cite{dobot}. This is simple desk robotic arm with 3 degrees of freedom and the possibility of replacing the effectors. All axis are driven by stepper motors so before use in needs firstly perform homeing action. It could be seen at figure \ref{fig:dobot}.
+The robot used in this part is called Dobot Magician \cite{dobot}. This is simple desk robotic arm with 3 degrees of freedom and the possibility of replacing the effectors. All axis are driven by stepper motors so before use in needs firstly perform homing action. It could be seen at figure \ref{fig:dobot}.
 
 \begin{figure}[!ht]
   \centering
@@ -449,11 +449,11 @@ The robot used in this part is called Dobot Magician \cite{dobot}. This is simpl
 
 As mentioned before, the application was created in Unity using the Holotoolkit library. As far as the supplied elements allowed for trouble-free operation of the peripherals provided by goggle sensors, connecting them with ROS required adding one's own module. It was written as a C\# script, in which the websocket connection to the ROSBridge server was opened. Then there was need to create protocol layer which will pack data into proper JSON messages. Their use allowed creating two-way communication between the robot and the application in Unity.
 
-With the ability to exchange data with ROS, implementations of the basic assumptions have started. Initially, the coordinate systems of the robot and goggles had to be synchronized so that the objects oriented in the virtual space would correspond to reality. For this purpose, the aforementioned Vuforia library was used. Created marker need to be placed in exact same position in front of robotic arm as it was setted in Unity 3D environment. Thanks to that all objects will appear just in a right spot.
+With the ability to exchange data with ROS, implementations of the basic assumptions have started. Initially, the coordinate systems of the robot and goggles had to be synchronized so that the objects oriented in the virtual space would correspond to reality. For this purpose, the aforementioned Vuforia library was used. Created marker need to be placed in exact same position in front of robotic arm as it was set in Unity 3D environment. Thanks to that all objects will appear just in a right spot.
 
 Next task was to create a 3D cube and bind its position with the position of the robot effector taken from ROS. This test allowed to observe that the coordinate axes of the robot are pointing in other directions than Unity one's. To facilitate the later work, another script dealing with bidirectional transformation was written.
 
-After application was able to receive an position from the robot, a part of the code allowing its setting was written. In this case gesture recognition module from HoloToolkit library was used. It allows to capture event when particular gesture is occuring and extract from it information about relative position of hand. Using this from the perspective of the code, we are able to add a hand translation vector to the position vector of the selected object which will appear as its shift in space. This allow to move previously created cube, then reads it position and at the end write it to robot. That part works very well. On figure \ref{fig:armMove} could be seen screenshots from hololens with different positions setted.
+After application was able to receive an position from the robot, a part of the code allowing its setting was written. In this case gesture recognition module from HoloToolkit library was used. It allows to capture event when particular gesture is occurring and extract from it information about relative position of hand. Using this from the perspective of the code, we are able to add a hand translation vector to the position vector of the selected object which will appear as its shift in space. This allow to move previously created cube, then reads it position and at the end write it to robot. That part works very well. On figure \ref{fig:armMove} could be seen screenshots from hololens with different positions set.
 
 \begin{figure}[!ht]
 \centering
@@ -473,7 +473,7 @@ After application was able to receive an position from the robot, a part of the 
 \label{fig:armMove}
 \end{figure}
 
-Last part of the task was to give ability to store setted positions, draw path between them and at the end be able to automatically replay sequence of movements. For this purpose an click gesture was used. When user set desired position by draging followed by robot object then he could click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot.
+Last part of the task was to give ability to store set positions, draw path between them and at the end be able to automatically replay sequence of movements. For this purpose an click gesture was used. When user set desired position by dragging followed by robot object then he could click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot.
 
 \subsection{Mobile robot}
 In this part of research, connection between Unity and ROS was done in the same way like in case of robotic arm. The only difference between them was number of supported messages types. It was need to be extend to be able to receive sensors data.
@@ -489,7 +489,7 @@ Robot used in this part of research is called TurtleBot3 Waffle \cite{turtlebot}
   \label{fig:turtlebot}
 \end{figure}
 
-First, the task related to the visualization of sensory data was carried out. Based on the fact that reading information from the robot had already been developed, it was quite easy to get to it. After connection is estabilish and data is accquired script which was written is generating small spheres and pushes them away from the center of LiDAR at a distance read from the ROS. This give us visual feedback which objects could be seen by given sensor. In this case LiDAR beam could not detect glass doors (Figure \ref{fig:glassDoor}).
+First, the task related to the visualization of sensory data was carried out. Based on the fact that reading information from the robot had already been developed, it was quite easy to get to it. After connection is establish and data is acquired script which was written is generating small spheres and pushes them away from the center of LiDAR at a distance read from the ROS. This give us visual feedback which objects could be seen by given sensor. In this case LiDAR beam could not detect glass doors (Figure \ref{fig:glassDoor}).
 
 \begin{figure}[!ht]
   \centering
