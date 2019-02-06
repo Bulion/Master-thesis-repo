@@ -476,7 +476,26 @@ After the application was able to receive a position from the robot, a part of t
 \label{fig:armMove}
 \end{figure}
 
-Last part of the task was to give ability to store set positions, draw path between them and at the end to be able to automatically replay a sequence of movements. For this purpose click gesture was used. When user set desired position by dragging followed by robot object then he can click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot.
+Last part of the task was to give ability to store set positions, draw path between them and at the end to be able to automatically replay a sequence of movements. For this purpose click gesture was used. When user set desired position by dragging followed by robot object then he can click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot. Results can be seen in Figure
+\ref{fig:robotPath}.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{robotPath1}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{robotPath2}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{robotPath3}
+\end{subfigure}%
+\caption{Robotic arm moving point-to-point along created path}
+\label{fig:robotPath}
+\end{figure}
 
 \subsection{Mobile robot}
 In this part of research, connection between Unity and ROS was done in the same way like in case of robotic arm. The only difference between them was number of supported messages types. It was need to be extend to be able to receive sensors data.
@@ -501,7 +520,25 @@ First, the task related to the visualization of sensory data was carried out. Ba
   \label{fig:glassDoor}
 \end{figure}
 
-The second task was quite similar to what was done with the robot arm. Prepared application allowed to mark points on the floor to which the robot has to go. The C\# script created in Unity uses the click gesture to retrieve the cursor position indicating the place the user is looking at. Then a sphere is instantiate at that place and as long as the gesture is not released, it is possible to change the orientation using the hand movement. The operation is visualized by means of a rotating arrow attached to the created sphere. After completing the gesture, the position and orientation of the selected point from the goggles coordinates to the coordinates of the robot are converted. Finally, a JSON query is created from the obtained data, which is sent via ROSBridge. On robot side there is called move\_base action. This is a node which is linking together local and global planner. Thanks to it, on the basis of data from sensors and odometry, the robot is able to reach the point by solving global navigation task. In Figure \ref{turtlebotMove} there can be seen screenshots from hololens showing placed virtual marker and robot approaching to it.
+The second task was quite similar to what was done with the robot arm. Prepared application allowed to mark points on the floor to which the robot has to go. The C\# script created in Unity uses the click gesture to retrieve the cursor position indicating the place the user is looking at. Then a sphere is instantiate at that place and as long as the gesture is not released, it is possible to change the orientation using the hand movement. The operation is visualized by means of a rotating arrow attached to the created sphere. After completing the gesture, the position and orientation of the selected point from the goggles coordinates to the coordinates of the robot are converted. Finally, a JSON query is created from the obtained data, which is sent via ROSBridge. On robot side there is called move\_base action. This is a node which is linking together local and global planner. Thanks to it, on the basis of data from sensors and odometry, the robot is able to reach the point by solving global navigation task. In Figure \ref{fig:turtlebotMove} there can be seen screenshots from hololens showing placed virtual marker and robot approaching to it.
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{TBMove1}
+\end{subfigure}%
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{TBMove2}
+\end{subfigure}
+\begin{subfigure}{.33\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{TBMove3}
+\end{subfigure}%
+\caption{Mobile robot approaching to selected position}
+\label{fig:turtlebotMove}
+\end{figure}
 
 \chapter{Summary}
 The ways of using augmented reality in robotics presented in this thesis are certainly not exhausting this topic. Due to the relatively early stage of development of this technology, only simple cases were chosen. Nevertheless, all selected tasks have been completed. In each case, the prepared interface allowed to perform the required actions, but usually the precision of movements was not satisfactory. It was influenced by the problem of keeping hand in one place and probably by inaccurate goggles positioning. It is possible that improving some aspects of the proposed user interface would improve this issue.
