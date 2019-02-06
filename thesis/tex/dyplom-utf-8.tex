@@ -47,7 +47,7 @@
 robotycznych}
 \engtitle{Augmented reality goggles in robotic applications}
 \author{Dawid Śliwa}
-\supervisor{dr inż. Janusz Jakubiak, I-6}
+\supervisor{dr inż. Janusz Jakubiak, W4K7}
 %\guardian{dr hab. inż. Imię Nazwisko Prof. PWr, I-6} %nie używać
 %jeśli opiekun jest tą samą osobą co prowadzący pracę
 
@@ -79,8 +79,8 @@ robotycznych}
 
 %tutaj zaczyna się właściwa treść dokumentu
 \begin{document}
-\bibliographystyle{plabbrv} %tylko gdy używamy BibTeXa, ustawia polski
-                            %styl bibliografii
+\bibliographystyle{abbrv} %tylko gdy używamy BibTeXa, ustawia polski
+                          %styl bibliografii
 
 \maketitle %polecenie generujące stronę tytułową
 
@@ -91,19 +91,19 @@ robotycznych}
 \tableofcontents %spis treści
 
 \chapter{Introduction}
-Robots become more an more often seen in our environment. Starting from nowadays standard industrial applications and ending on home appliances robots. They all have more or less user friendly interface created to program or control them. In factories can be seen most often stationary or hand-held controllers and in consumer appliances, smartphone almost every time is used. Problem is that, this kind of interaction is not natural for humans. For comparison, communication between two employees working together is mostly done by voice, gestures and sometime touch. That is why modern controllers should been using these. This could improve a way of interaction on human-machine level. \\
+Robots become more an more often seen in our environment. Starting from nowadays standard industrial applications and ending with home appliances robots. They all have more or less user friendly interfaces created to program or control them. In factories stationary or hand-held controllers are most commonly used, whereas in consumer applications the smartphone is most often used. The problem is that this kind of interaction is not natural for people. For comparison, communication between two employees working together is mostly done by voice, gestures and sometimes touch. That is why modern controllers should been using these. This could improve a way of interaction on human-machine level.\\
 
-A few years ago, a revolution called Industry 4.0 began which most important statement was to not replace peoples in factories by machines, but allow them to cooperate at production line. From that time companies are trying to simplify teaching process of robots and give them ability to sense the changing environment. Also enhancements are done on the other side. Employees are equipped with many solutions with are extending they perception. This is allowing to get better understanding what machines are doing or even see what they are "thinking".
+A few years ago, a revolution called Industry 4.0 began which most important statement was to not replace peoples in factories by machines, but allow them to cooperate at production line. From that time companies try to simplify teaching process of robots and give them ability to sense the changing environment. Also enhancements are done on the other side. Employees are equipped with many solutions with extend they perception. They allow to better understand of what machines do or even see what they "think".
 
 \section{Purpose and scope of work}
-This thesis will focus on Augmented Reality and they usage in modern factories and research facilities. At the beginning, different types of AR technologies will be compared to give overall view on how this is working. Then industrial or commercial products which are available right now on the market will be presented. The last part of topic studies will try to present selected solutions with are already used in real world applications.\\
+This thesis focus on Augmented Reality and its usage in modern factories and research facilities. At the beginning, different types of AR technologies are compared to give an overall view on how this devices works. Then industrial and commercial products available currently on the market are presented. The last part of topic studies present selected solutions with are already used in real world applications.\\
 
-Research part of this thesis will try to present simple examples of implementation AR in robotic applications. The topic will cover the issue of planing movement of robotic arm and also controlling and presenting data from mobile robot. This should give more or less understanding what this technology is capable and whats are its current limitations.
+Research part of this thesis presents simple examples of implementation of the AR in robotic applications. The topic works covers the issue of planing movement of robotic arm and also controlling and presenting data from a mobile robot. This should give more or less understanding what this technology is capable of and whats are its current limitations.
 
 
 \chapter{Introduction to Augmented Reality}
 %tutaj można napisac cos o tym gdzie można umiejscowic w przestrzeni augmented reality (relity<->mixed reality<->virtual reality)
-The perception of our surroundings is made to a large extent by the organ of sight. Thanks to that we are able to navigate and operate in our real environment. But what if we will try to trick him by placing displays in front of our eyes? Depending on content generated by computer it could simply show some additional information or create illusion of being completely somewhere else. To distinguish types of immersion the concept of a "Reality-Virtuality Continuum" \cite{RVContinuum} was created. It graphical representation is shown on figure \ref{fig:RVContinuum}.
+The perception of our surroundings is made to a large extent by the organ of sight. Thanks to that we are able to navigate and operate in our real environment. But what if we try to trick it by placing displays in front of our eyes? Depending on content generated by computer it could simply show some additional information or create illusion of being completely somewhere else. To distinguish types of immersion the concept of a "Reality-Virtuality Continuum" \cite{RVContinuum} was created. It graphical representation is shown in Figure \ref{fig:RVContinuum}.
 
 \begin{figure}[!ht]
   \centering
@@ -112,10 +112,10 @@ The perception of our surroundings is made to a large extent by the organ of sig
   \label{fig:RVContinuum}
 \end{figure}
 
-On the most left side of this line there is our real environment with real objects in no way disturbed by computer graphics. On the other hand on the most right side there is Virtual Reality with fully 3D generated world that could even in example not holding known by us laws of physics. Between two of those is everything with is mixing one part with another. Depending on what balance is, then we will talk about Augmented Reality or Augmented Virtuality. For example when there operator is getting some simulated cues to augment his natural feedback then it is AR. When in virtual world appears some real life objects or persons then it is called AV. Good example for that are modern news where reporters are working at green screen and in television they appear in 3D generated studios. As this paper will only discuss topic of using Augmented Reality in robotics applications that is why technical aspects of Augmented Virtuality or Virtual Reality will be not considered.
+On the most left side of this line there is our real environment with real objects in no way disturbed by computer graphics. On the opposite side there is Virtual Reality with fully 3D generated world. Between two of those is everything which is mixing one part with another. Depending on what is the balance between them, we talk about Augmented Reality or Augmented Virtuality. For example when an operator is receiving some simulated cues to augment his natural feedback then it is called AR. When in virtual world appears some real life objects or persons then it is called AV. Good example for that are modern news where reporters work at green screen and in television they appear in 3D generated studios. As this paper discuss topic of using Augmented Reality in robotics applications that is why technical aspects of Augmented Virtuality and Virtual Reality will be not considered.
 
 \section{Technology overview}
-AR devices can take many different forms but way of processing data is almost always the same. In the simplest way it could be explained as following process. First device need to capture an image and localize itself or the user in environment then mix those data with CG objects and at the end display them on a screen. Figure \ref{fig:ARpipeline} presents this pipeline in graphical form with few additional steps.
+AR devices can take many different forms but a way of processing data is almost always the same. In the simplest case could be explained as the following process. At first a device needs to capture an image and localize itself or the user in environment then mix those data with CG objects and at the end to display them on a screen. Figure \ref{fig:ARpipeline} presents this pipeline in graphical form with few additional steps.
 
 \begin{figure}[!ht]
   \centering
@@ -124,13 +124,13 @@ AR devices can take many different forms but way of processing data is almost al
   \label{fig:ARpipeline}
 \end{figure}
 
-This section will show different types of technologies with where used at implementation of individual elements of this process.
+This section shows the different types of technologies that correspond to the selected elements of this process.
 
 \subsection{Types of image projection}
 %wymienic typy projekcji obrazu
-There is several way of displaying virtual objects in our environment. Depending on its type they could be more or less immersing for the user.\\
+There is several way of displaying virtual objects in our environment. Depending on its type they could be more or less immersive for the user.\\
 
-The most popular and the simplest types of projection is video-mixing. It involves the usage of devices equipped with a camera and standard display to present AR content. In most cases smartphones or tablets are used because they have built-in every needed component and they are very portable. Figure \ref{fig:tabletAR} present example of such projection. The great advantage of this approach compared to others is that you can use one device in cooperation with other people, which could result in a significant reduction of operating costs. The disadvantages should be mentioned that the employee is not able to observe the environment and use both hands to do his job. Therefore, this type of projection is most often used in devices used to supervise the operation of machines.
+The most popular and the simplest type of projections is video-mixing. It involves the usage of devices equipped with a camera and standard display to present AR content. In the most common cases, smartphones or tablets are used because they have all the necessary components built in and are very portable. Figure \ref{fig:tabletAR} present example of such projection. The great advantage of this approach compared to others is that you can use one device in cooperation with other people, which could result in a significant reduction of operating costs. The disadvantages should be mentioned that the employee is not able to observe the environment and use both hands to do his job. Therefore, this type of projection is most often used in devices used to supervise the operation of machines.
 
 \begin{figure}[!ht]
   \centering
@@ -139,7 +139,7 @@ The most popular and the simplest types of projection is video-mixing. It involv
   \label{fig:tabletAR}
 \end{figure}
 
-Second type of projection is slightly different than first one. It is called spatial display. In this case virtual objects are shown directly on real environment surfaces by usage of digital projectors. It could be realized on two way. We could have hand-held device with will work similar to flashlight or stationary mounted projector. In first case we could for example inspect virtual paths of transportation robots in warehouses or factory by highlighting floors. Also autonomous cars can use their headlights to display information on the road and for instance inform pedestrian that they could safely cross the passage. Stationary projectors are most often used with collaborative robots. They can display for example some cues for worker which item it will pick-up or where it will place it on shared workspace. Presented types of projection could be seen on Figure \ref{fig:spatialAR}.
+Second type of projection is slightly different than first one. It is called spatial display. In this case virtual objects are shown directly on real environment surfaces by usage of digital projectors. It could be realized on two way. We could have hand-held device with will work similar to flashlight or a stationary mounted projector. In the first case we could for example inspect virtual paths of transportation robots in warehouses or factory by highlighting floors. Also autonomous cars can use their headlights to display information on the road and for instance to inform pedestrian that they could safely cross the passage. Stationary projectors are most often used with collaborative robots. They can display for example some cues for workers which item they should pick-up or where place in the shared workspace. Presented types of projection can be seen in Figure \ref{fig:spatialAR}.
 
 \begin{figure}[!ht]
 \centering
@@ -159,7 +159,7 @@ Second type of projection is slightly different than first one. It is called spa
 \label{fig:spatialAR}
 \end{figure}
 
-Next AR display technology which will be presented is optical see-through. Its principle of operation boils down to projecting images on partially reflecting surface. This allow to combine real world view with generated graphics which will appear as floating in space holograms. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case. First type presented at image \ref{fig:headMounted} is commonly used in situations where worker need to have both hands free to do his work. At HMD could be shown some step by step instructions or in case operating with robots, live sensors data. Example from image \ref{fig:headUp} show the most common scenario of usage of HUD. Nowadays they are showing information about speed and navigation guidance for a driver but in autonomous vehicles they could display also some cues what car see and what it intends to do.
+Next AR display technology is optical see-through. Its principle of operation boils down to projecting images on partially reflective surface. This allow to combine real world view with generated graphics which appear as holograms floating in space. There are two ways to achieve this goal. Device could use a head-mounted or head-up displays. Figure \ref{fig:seeThroughAR} shows how the projection is carried out with particular case. First type presented at image \ref{fig:headMounted} is commonly used in situations where worker need to have both hands free to do his work. At HMD some step by step instructions can be shown or in case operating with robots, live sensors data. The example from image \ref{fig:headUp} shows the most common scenario of usage of HUD. Nowadays they are showing information about speed and navigation guidance for a driver but in autonomous vehicles they could display also some cues what the car sees and what it intends to do.
 
 \begin{figure}[!ht]
 \centering
@@ -181,13 +181,11 @@ Next AR display technology which will be presented is optical see-through. Its p
 
 \subsection{Positioning and location}
 %rodzaje lokalizacji obiektow w scenie i pozycjonowania samych gogli w przestrzeni
-Only small part of AR devices is presenting data that is not depending on real environment obstacles. These include basic versions of HUD and smartglasses. Rest of them need somehow localize itself or detect position of the user. In this section various types of positioning techniques will be presented.\\
+Only small part of AR devices is presenting data that does not depend on real environment obstacles. These include basic versions of HUD and smartglasses. The rest of them needs to somehow localize itself or detects position of the user. In this section various types of positioning techniques will be presented.\\
 
-Marker-based localization is simplest one. The principle of operation consists in detection of predefined shape or image by the device camera. To achieve this first of all data need to be preprocessed.
+Marker-based localization is the simplest one. The principle of operation consists in detection of predefined shape or image by the device camera. To achieve this first of all data need to be preprocessed. The most trivial example is when our marker have square shape and high contrast. In that case the algorithm needs only to know what is length of the side. With this information it is able to calculate position and orientation of the device basing on detected corners. As the most important are only the edges the center can have any shape. It allows to store some information inside and also help to determinate from with side of square the camera is looking. Figure \ref{fig:ARMarker} shows the detected marker with the read ID number assigned to it. Pros of this approach is quite low requirement for computational power and a easy way to generate many unique ID's. The disadvantage is that the user must print these images and arrange them in chosen locations.
 
-Most trivial example is when our marker have square shape and high contrast. In that case algorithm need only know what is length of side. With this information it is able to calculate position and orientation of the device basing on detected corners. As the most important are only the edges the center can have any shape. This allow to store some information inside and also help to determinate from with side of square camera is looking. Figure \ref{fig:ARMarker} show detected marker with read associated to it ID number. Pros of this approach is quite low requirement for computational power and easy way to generate many unique ID's. The disadvantage is that the user must print these images and arrange them in their chosen locations.
-
-There is also possibility to track normal images or even 3D objects. In this case there are used algorithms with are extracting some particular features from provided data (Figure \ref{fig:featureExtraction}). Basing on them device could be able to localize itself in space only by looking on for example machine logo. Pros of this approach is better tracking of object even when whole image is not in camera view. Disadvantage is more complex computation.
+There is also a possibility to track normal images or even 3D objects. In this case there are algorithms used extracting some particular features from provided data (Figure \ref{fig:featureExtraction}). Basing on them device could be able to localize itself in space only by looking on for example machine logo. Pros of this approach is better tracking of object even when whole image is not in camera view. Disadvantage is more complex computation.
 
 \begin{figure}[!ht]
 \centering
@@ -207,13 +205,13 @@ There is also possibility to track normal images or even 3D objects. In this cas
 \label{fig:markerBasedLocalization}
 \end{figure}
 
-Next discussed type of localization is based on measurements obtained via external devices. There are many possible implementations of this approach but they could be categorized based upon the working principle.
+Next type of localization is based on measurements obtained via external devices. There are many possible implementations of this approach but they can be categorized based on the principle of operation.
 
-Optical tracking of passive markers \cite{MoCap} is best known in film industry. It is used in Motion Capture studios to transfer movement of actor to 3D modeled characters. It requires usage of multiple high-speed cameras with infrared illuminators fixed around the measurement area to triangulate a reflective marker position. Successful capture of tracked point by at least two camera give sub-millimeter precision. To avoid situation where marker is occluded by some obstacles localized object could be equipped with redundant ones. Disadvantage of such system is limitation of operating area caused by strength of the reflected light. There is also a way to increase to a certain extent range by using active markers which are light sources but this cause another problems with need to provide power to those.
+Optical tracking of passive markers \cite{MoCap} is best known in film industry. It is used in Motion Capture studios to transfer movement of actor to 3D modeled characters. It requires usage of multiple high-speed cameras with infrared illuminators fixed around the measurement area to triangulate a reflective marker position. Successful capture of tracked point by at least two camera give a sub-millimeter precision. To avoid situation where marker is occluded by some obstacles the localized object could be equipped with redundant markers. A disadvantage of such system is limitation of operating area caused by strength of the reflected light. There is also a way to increase to a certain extent system range by using active markers which are light sources but this causes problems with a need to provide power to those.
 
-From optical localization method there are also systems working without any markers. They are based on 3D depth cameras with are providing not only image but also give information about distance from objects. This allow to not only get position of tracked device but also could give feedback about scanned environment. This kind of systems generally have operation distance from 0.5 to 8 meters. Precision of positioning it is inversely proportional to it.
+From optical localization method there are also systems working without any markers. They are based on 3D depth cameras which provide not only image but also give information about distance from objects. This allows not only get position of the tracked device but also could give feedback about scanned environment. This kind of systems generally have operation distance from 0.5 to 8 meters. Its precision of positioning is inversely proportional to it.
 
-External localization could be also realized by measuring field strength or time of flight of electromagnetic waves. In this case at least three transmitters are needed to establish position. This method is slightly less accurate in compare to optical ones but have huge advantage in the form of being able to track device without direct visibility. Also range and refresh rate of such systems is significantly larger than optical ones.
+External localization could be also realized by measuring field strength or time of flight of electromagnetic waves. In this case at least three transmitters are needed to establish position. This method is slightly less accurate in comparison to optical ones but have a huge advantage in the form of being able to track devices without direct visibility. Also the range and refresh rate of such systems is significantly larger than of optical methods.
 
 \begin{figure}[!ht]
 \centering
@@ -239,7 +237,7 @@ External localization could be also realized by measuring field strength or time
 \label{fig:externalDevicesLocalization}
 \end{figure}
 
-Last presented type of positioning is Simultaneous Localization And Mapping (SLAM). This is technique with is using Laser Range Sensors or 3D Depth cameras to create map of environment. Basing on that data algorithm could calculate position and orientation in space. The big advantage of this solution is the ability to integrate all elements into one device with makes it almost limitless in terms of working area. Also additional gain is that the obtained data can be used to classify objects located in the environment. Unfortunately, such calculations takes huge amount of processing power so device need more expensive components to be able run in real-time. At Figure \ref{fig:SLAMHololens} could be seen 3D map of room created by using depth sensor and SLAM algorithm.
+Last presented type of positioning systems is Simultaneous Localization And Mapping (SLAM). This technique uses Laser Range Sensors or 3D Depth cameras to create map of environment. Basing on that data algorithm could calculate position and orientation in space. The big advantage of this solution is the ability to integrate all elements into one device which makes it almost limitless in terms of working area. Also additional advantage is that the obtained data can be used to classify objects located in the environment. Unfortunately, such calculations take huge amount of processing power so a device require more expensive components to be able run in real-time. In Figure \ref{fig:SLAMHololens} can be seen 3D map of room created by using depth sensor and SLAM algorithm.
 
 \begin{figure}[!ht]
   \centering
@@ -250,15 +248,15 @@ Last presented type of positioning is Simultaneous Localization And Mapping (SLA
 
 \subsection{User control and interaction}
 %sposoby interakcji uzytkownikow z wirtualnymi obiektami (gesty, głos, kontrolery)
-Augmented Reality devices requires different approach to how user should use them. As the worker is no longer limited by his stationary desk there is need to change way of interaction. This section will discuss most common used methods.\\
+Augmented reality devices require a different approach to how the user interacts with them. As the worker is no longer limited by his stationary desk there is a need to change the way of interaction. This section discusses most commonly used methods.\\
 
-Simplest HMD devices, where in the field of view we had only displayed text or images there is no need to add special types of interaction. In most cases on frame of device are placed buttons or small touchpad (Figure \ref{fig:swipeGlass}) which allow user to control displayed content. This approach allows to reduce production costs so that it could have lower price tag and be able to get to more customers.
+The simplest HMD devices, where in the field of view we have only displayed text or images are using the simplest interaction solutions. In most cases there are buttons or small touchpad placed in the frame (Figure \ref{fig:swipeGlass}) which allow user to control screen content. This approach allows to reduce production costs so that it can have lower price tag and get to more customers.
 
-When device is providing ability to observe 3D objects in space then user need some controllers to be able to operate them. On the market most popular ones are using optical tracking (Figure \ref{fig:MRControllers}) but there are also those that uses electromagnetic fields. In addition, all are equipped with 6-DOF sensors to enhance stability of calculated position. This type of input is very precise but requires holding the controller which in some cases may hinder normal work.
+When device provides ability to observe 3D objects in space then the user needs some controllers to be able to operate it. On the market the most popular ones use optical tracking (Figure \ref{fig:MRControllers}) but there are also devices which use electromagnetic field. In addition, all are equipped with 6-DOF sensors to enhance stability of calculated position. This type of input is very precise but requires holding the controller which in some cases may hinder normal work.
 
-The solution to this problem is to recognize gestures and track them (Figure \ref{fig:gestureControl}). This allow to operate with 3D environment while still having both hands free. Detection is carried out using depth cameras. Unfortunately like in case of using SLAM algorithms this method consume a lot of computing power so it is reserved only for the most expensive devices.
+The solution to this problem is to recognize gestures and track them (Figure \ref{fig:gestureControl}). This allows to operate with 3D environment while still having both hands free. Detection is carried out using depth cameras. Unfortunately like in case of using SLAM algorithms this method consumes a lot of computing power so it is reserved only for the most expensive devices.
 
-The last type of interaction with will be discussed is voice control. It is a very intricate topic due to diversity of humans dialects and accents. With current technology embedded computers can interpret only single words or predefined sentences however, using the resources of cloud services it is possible to extract information from context using natural language processing (NLP) algorithms. The disadvantage of this solution is requirement of continuous access to the Internet and quite slow response.
+The last type of interaction is voice control. It is a very intricate topic due to diversity of dialects and accents. With current technology embedded computers can interpret only single words or predefined sentences however, using the resources of cloud services it is possible to extract information from context using natural language processing (NLP) algorithms. The disadvantage of this solution is a requirement of continuous access to the Internet and quite slow response.
 
 \begin{figure}[!ht]
 \centering
@@ -284,15 +282,30 @@ The last type of interaction with will be discussed is voice control. It is a ve
 \end{figure}
 
 \section{Products available on market}
-Augmented reality is still quite young technology. Omitting the fact that it was used in the army and civil aviation since the 1960s, it is now becoming available to industry and individual users. There are more and more companies trying their strength in this sector on the market. They use a variety of image display and interaction technologies, and develop newer and newer solutions. This section will show few chosen AR devices and software's.
-
-\subsection{Hardware devices}
-The devices presented at table \ref{tab:hardwareDevices} are currently focused mainly on B2B cooperation. High prices and low maturity of the technology to the consumer market have an impact on this. Also there is no one unified environment between them so all applications are written to fulfill specific case. However, some devices can be bought in normal sales, so it is not a closed market for a regular customer.
+Augmented reality is still quite young technology. Omitting the fact that it was used in the army and civil aviation since the 1960s, it is now becoming available to industry and individual users. There are more and more companies trying their strength in this sector of the market. They use a variety of image displays and interaction technologies, and develop newer and newer solutions. This section will show few chosen AR devices and software.
 
 \subsection{Software solutions}
 The cheapest entry level to AR world is use of dedicated SDK's on computer, smartphone or tablet. On the market there are many ready to use solutions which cover different use cases. Most of them are commercial products, but there are also some open-source one. Table \ref{tab:ARSoftware} shows the collected information about several of them.
 
-%\resizebox{\linewidth}{!}{%
+\subsection{Hardware devices}
+The devices presented at table \ref{tab:hardwareDevices} are currently focused mainly on B2B cooperation. High prices and low maturity of the technology to the consumer market have an impact on this. Also there is no one unified environment between them so all applications are written to fulfill specific case. However, some devices can be bought in normal sales, so it is not a completely closed market for a regular customer.\\
+
+\begin{table}[!ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|l|l|c|}
+\hline
+SDK Name & Licence    & \multicolumn{1}{c|}{Platform}                                                                    & \multicolumn{1}{c|}{Capabilities}                                                                                                                                                      & Description                                                                                                                                                                                                                      \\ \hline
+ALVAR \cite{ALVAR}   & LGPL       & \begin{tabular}[c]{@{}l@{}}Mobile: Android, iOS, UWP\\ Desktop: Linux, Windows, Mac\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tracks 2D targets\\ Multi-marker tracking\\ Markerless, feature-based 3D tracking\\ Extended tracking, SLAM, sensor fusion\end{tabular}                     & \begin{tabular}[c]{@{}c@{}}General purpose augmented reality\\ library basing on OpenCV. Developed by\\ VTT Technical Research Center of Finland.\end{tabular}                                                                   \\ \hline
+ARKit \cite{ARKit}   & Commercial & Mobile: iOS                                                                                      & \begin{tabular}[c]{@{}l@{}}2D Object Detection and Tracking\\ Shared AR Experiences\\ Detect known 3D objects\\ Face Tracking\end{tabular}                                             & \begin{tabular}[c]{@{}c@{}}Library developed by Apple company. \\ Available only for devices with Mac OS\\ and iOS.\end{tabular}                                                                                                 \\ \hline
+ARCore \cite{ARCore}   & Apache 2.0 & \begin{tabular}[c]{@{}l@{}}Mobile: Android, iOS\\ Desktop: Linux, Windows, Mac\end{tabular}      & \begin{tabular}[c]{@{}l@{}}Motion tracking\\ Markerless, feature-based 3D tracking\\ Environmental understanding\\ Light estimation\end{tabular}                                       & \begin{tabular}[c]{@{}c@{}}Google’s platform for building augmented\\ reality experiences. Works on Android \\ phones and  tablets running Android 7.0\\ and later or PC.\end{tabular}                                           \\ \hline
+ArUco \cite{ArUco}   & GPLv3      & \begin{tabular}[c]{@{}l@{}}Mobile: Android\\ Desktop: Linux, Windows, Mac\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Detect markers:\\ ARUCO, AprilTag, ArToolKit+, \\ ARTAG, CHILITAGS\end{tabular}                                                                             & \begin{tabular}[c]{@{}c@{}}ArUco is an OpenSource library for camera\\ pose estimation using squared markers.\\ ArUco is written in C++ and is extremely fast.\end{tabular}                                                      \\ \hline
+Vuforia \cite{vuforia}  & Commercial & \begin{tabular}[c]{@{}l@{}}Mobile: Android, iOS, UWP\\ Desktop: Linux, Windows, Mac\end{tabular} & \begin{tabular}[c]{@{}l@{}}Model 2D/3D Targets with Deep Learning\\ Recognize multiple objects, from multiple angles\\ VISLAM for markerless AR\\ External Camera for iOS\end{tabular} & \begin{tabular}[c]{@{}c@{}}Vuforia offers dynamic Object Recognition\\ and can perceive images, 3D models and \\ environments to provide development flexibility.\\ It has also great community and many tutorials.\end{tabular} \\ \hline
+\end{tabular}%
+}
+\caption{Most popular SDK's on augmented reality market}
+\label{tab:ARSoftware}
+\end{table}
 
 \begin{landscape}
 \begin{table}[]
@@ -301,13 +314,13 @@ The cheapest entry level to AR world is use of dedicated SDK's on computer, smar
 \begin{tabular}{|c|l|l|l|l|l|l|l|l|l|l|}
 \hline
 Device name                                                                  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Type of\\ projection\end{tabular}}                          & \multicolumn{1}{c|}{Hardware}                                                                                            & \multicolumn{1}{c|}{Sensors}                                                                                                                                                       & \multicolumn{1}{c|}{Connectivity}                                                                                  & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Battery\\ (life time)\end{tabular}} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Mechanical\\ parameters\end{tabular}}                                       & \multicolumn{1}{c|}{User input}                                                                             & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Operating\\ system\end{tabular}} & \multicolumn{1}{c|}{Capabilities}                                                                                                                & Price   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Microsoft \\ Hololens\cite{HololensHW}\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1920x1200 px per eye\\ 40 degrees view angle\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intel x86 CPU\\ Holographic Processing Unit\\ 2 GB RAM\\ 64 GB storage\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Depth Sensor Camera\\ 2MP Video Camera\\ 4x environment understanding cameras\\ IMU\\ Ambient Light Sensor\\ Microphone\\ On-board Speakers\end{tabular} & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11ac\\ Bluetooth® 4.1 LE\\ 3.5mm Jack\\ micro-USB\end{tabular}                & \begin{tabular}[c]{@{}l@{}}4500 mAh\\ 2-3 hours\end{tabular}                       & \begin{tabular}[c]{@{}l@{}}Weight: 579 g\\ Adjustable head band\end{tabular}                                               & \begin{tabular}[c]{@{}l@{}}Gesture input\\ Wireless clicker\\ Voice support\\ Buttons on frame\end{tabular} & Windows™ 10                                                                     & \begin{tabular}[c]{@{}l@{}}Spatial sound\\ Gaze tracking\\ 6-DOF tracking\\ Mapping of environment\\ Teleoperation\end{tabular}                  & \$4500  \\ \hline
-\begin{tabular}[c]{@{}c@{}}Epson \\ MOVERIO PRO \\ BT-2000/2200\cite{MOVERIOPRO}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 960x540 px per eye\\ 23 degrees view angle\end{tabular}   & \begin{tabular}[c]{@{}l@{}}TI OMAP 4460 1,2 GHz\\ 1 GB RAM\\ 8 GB internal storage\\ 32 GB external microSD\end{tabular} & \begin{tabular}[c]{@{}l@{}}5MP Stereo Camera\\ GPS\\ IMU\\ Ambient Light Sensor\\ Geomagnetic Sensor\\ Microphone\end{tabular}                                                     & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 b/g/n/a\\ Bluetooth® 3.0 \& BLE\\ 3.5mm Jack\\ micro-USB\end{tabular}      & \begin{tabular}[c]{@{}l@{}}2x 1240 mAh\\ $\sim$4 hours\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Weight: 270-290 g\\ Depending on version:\\ - adjustable head band\\ - rubber band\end{tabular} & \begin{tabular}[c]{@{}l@{}}Wired controller\\ Voice support\end{tabular}                                    & Android™ 4.0.4                                                                  & \begin{tabular}[c]{@{}l@{}}Teleoperation\\ 6-DOF tracking\\ Task guidance\end{tabular}                                                          & \$2000  \\ \hline
-\begin{tabular}[c]{@{}c@{}}DAQRI \\ Smart Glasses\cite{DAQRI}\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1360x768 px per eye\\ 44 degrees view angle\end{tabular}  & \begin{tabular}[c]{@{}l@{}}6th Intel® Core™ m7\\ Dedicated vision processing unit\\ 64 GB storage\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Color Camera\\ AR Tracking Camera\\ Depth Sensor Camera\\ IMU\\ 2 Microphones with\\ Active Noise Cancellation\end{tabular}                             & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 a/b/g/n/ac\\ Bluetooth®\\ 2 USB 3.1 Type C Ports\\ 3.5mm Jack\end{tabular} & 5800 mAh                                                                           & \begin{tabular}[c]{@{}l@{}}Smart Glasses: 335 g\\ Compute Pack: 496 g\\ Adjustable head band\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}Gesture input\\ Voice support\end{tabular}                                       & Custom solution                                                                 & \begin{tabular}[c]{@{}l@{}}Mapping of environment\\ Teleoperation\\ 6-DOF tracking\end{tabular}                                                  & Unknown \\ \hline
-\begin{tabular}[c]{@{}c@{}}ARVIND SANJEEV\\ LUMEN\cite{Lumen}\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Projection based\\ 640x360px\\ screen size: 10"-112"\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Broadcom BCM2835 1GHz\\ 512 MB RAM\\ 32 GB external microSD\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}Color Camera\\ Depth Sensor Camera\end{tabular}                                                                                                         & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 b/g/n\\ Bluetooth® 4.1 LE\\ micro-USB\end{tabular}                         & \begin{tabular}[c]{@{}l@{}}1800 mAh\\ $\sim$30 min\end{tabular}                    & Unknown                                                                                                                    & Gesture input                                                                                               & Linux                                                                           & \begin{tabular}[c]{@{}l@{}}Objects recognition\\ Mapping of environment\end{tabular}                                                             & Unknown \\ \hline
-\begin{tabular}[c]{@{}c@{}}Light Guide Systems\\ Classic\cite{LGS}\end{tabular}        & Projection based                                                                                           & Any PC                                                                                                                   & Color camera                                                                                                                                                                       & \begin{tabular}[c]{@{}l@{}}HDMI\\ USB\end{tabular}                                                                 & AC Powered                                                                         & Unknown                                                                                                                    & Camera feedback                                                                                             & Windows™                                                                        & \begin{tabular}[c]{@{}l@{}}Augmentation of workstation\\ Task guidance\\ Automatic part assembly check\\ Production time recording\end{tabular} & Unknown \\ \hline
-\begin{tabular}[c]{@{}c@{}}Magic Leap\\ One\cite{MagicLeap}\end{tabular}                     & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1280x960 px per eye\\ 50 degrees view angle\end{tabular}  & \begin{tabular}[c]{@{}l@{}}CPU: NVIDIA® Parker\\ GPU: NVIDIA Pascal™\\ 8 GB RAM\\ 128 GB Storage\end{tabular}            & \begin{tabular}[c]{@{}l@{}}Depth camera\\ Environment understanding cameras\\ IMU\\ Microphone\\ Onboard Speakers\end{tabular}                                                     & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11ac/b/g/n\\ Bluetooth® 4.2\\ USB-C\end{tabular}                              & $\sim$3 hours                                                                      & Weight: 345 g                                                                                                              & \begin{tabular}[c]{@{}l@{}}Gesture input\\ 6-DOF tracked controllers\\ Voice support\end{tabular}           & Lumin OS                                                                        & \begin{tabular}[c]{@{}l@{}}Mapping of environment\\ Teleoperation\\ 6-DOF tracking\end{tabular}                                                  & \$2,295 \\ \hline
-\begin{tabular}[c]{@{}c@{}}Google Glass\\ Enterprise Edition\cite{Glass}\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 640×360 px\end{tabular}                                   & \begin{tabular}[c]{@{}l@{}}Intel Atom processor\\ 2 GB RAM\\ 32 GB storage\end{tabular}                                  & \begin{tabular}[c]{@{}l@{}}5 MP camera\\ IMU\\ Ambient Light Sensor\\ GPS \& GLONASS\\ Barometer\\ Bone conduction transducer\end{tabular}                                         & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11n/ac\\ Bluetooth®\end{tabular}                                              & \begin{tabular}[c]{@{}l@{}}780 mAh\\ $\sim$8 hours\end{tabular}                    & Weight: 36g                                                                                                                & \begin{tabular}[c]{@{}l@{}}Voice commands\\ Touchpad\\ Mobile app\end{tabular}                              & Android™ 4.4                                                                    & \begin{tabular}[c]{@{}l@{}}Teleoperation\\ Assistant\\ Task guidance\end{tabular}                                                               & \$1,500 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Microsoft \\ Hololens \cite{HololensHW}\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1920x1200 px per eye\\ 40 degrees view angle\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intel x86 CPU\\ Holographic Processing Unit\\ 2 GB RAM\\ 64 GB storage\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Depth Sensor Camera\\ 2MP Video Camera\\ 4x environment understanding cameras\\ IMU\\ Ambient Light Sensor\\ Microphone\\ On-board Speakers\end{tabular} & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11ac\\ Bluetooth® 4.1 LE\\ 3.5mm Jack\\ micro-USB\end{tabular}                & \begin{tabular}[c]{@{}l@{}}4500 mAh\\ 2-3 hours\end{tabular}                       & \begin{tabular}[c]{@{}l@{}}Weight: 579 g\\ Adjustable head band\end{tabular}                                               & \begin{tabular}[c]{@{}l@{}}Gesture input\\ Wireless clicker\\ Voice support\\ Buttons on frame\end{tabular} & Windows™ 10                                                                     & \begin{tabular}[c]{@{}l@{}}Spatial sound\\ Gaze tracking\\ 6-DOF tracking\\ Mapping of environment\\ Teleoperation\end{tabular}                  & \$4500  \\ \hline
+\begin{tabular}[c]{@{}c@{}}Epson \\ MOVERIO PRO \\ BT-2000/2200 \cite{MOVERIOPRO}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 960x540 px per eye\\ 23 degrees view angle\end{tabular}   & \begin{tabular}[c]{@{}l@{}}TI OMAP 4460 1,2 GHz\\ 1 GB RAM\\ 8 GB internal storage\\ 32 GB external microSD\end{tabular} & \begin{tabular}[c]{@{}l@{}}5MP Stereo Camera\\ GPS\\ IMU\\ Ambient Light Sensor\\ Geomagnetic Sensor\\ Microphone\end{tabular}                                                     & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 b/g/n/a\\ Bluetooth® 3.0 \& BLE\\ 3.5mm Jack\\ micro-USB\end{tabular}      & \begin{tabular}[c]{@{}l@{}}2x 1240 mAh\\ $\sim$4 hours\end{tabular}                & \begin{tabular}[c]{@{}l@{}}Weight: 270-290 g\\ Depending on version:\\ - adjustable head band\\ - rubber band\end{tabular} & \begin{tabular}[c]{@{}l@{}}Wired controller\\ Voice support\end{tabular}                                    & Android™ 4.0.4                                                                  & \begin{tabular}[c]{@{}l@{}}Teleoperation\\ 6-DOF tracking\\ Task guidance\end{tabular}                                                          & \$2000  \\ \hline
+\begin{tabular}[c]{@{}c@{}}DAQRI \\ Smart Glasses \cite{DAQRI}\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1360x768 px per eye\\ 44 degrees view angle\end{tabular}  & \begin{tabular}[c]{@{}l@{}}6th Intel® Core™ m7\\ Dedicated vision processing unit\\ 64 GB storage\end{tabular}           & \begin{tabular}[c]{@{}l@{}}Color Camera\\ AR Tracking Camera\\ Depth Sensor Camera\\ IMU\\ 2 Microphones with\\ Active Noise Cancellation\end{tabular}                             & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 a/b/g/n/ac\\ Bluetooth®\\ 2 USB 3.1 Type C Ports\\ 3.5mm Jack\end{tabular} & 5800 mAh                                                                           & \begin{tabular}[c]{@{}l@{}}Smart Glasses: 335 g\\ Compute Pack: 496 g\\ Adjustable head band\end{tabular}                  & \begin{tabular}[c]{@{}l@{}}Gesture input\\ Voice support\end{tabular}                                       & Custom solution                                                                 & \begin{tabular}[c]{@{}l@{}}Mapping of environment\\ Teleoperation\\ 6-DOF tracking\end{tabular}                                                  & Unknown \\ \hline
+\begin{tabular}[c]{@{}c@{}}ARVIND SANJEEV\\ LUMEN \cite{Lumen}\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Projection based\\ 640x360px\\ screen size: 10"-112"\end{tabular}               & \begin{tabular}[c]{@{}l@{}}Broadcom BCM2835 1GHz\\ 512 MB RAM\\ 32 GB external microSD\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}Color Camera\\ Depth Sensor Camera\end{tabular}                                                                                                         & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11 b/g/n\\ Bluetooth® 4.1 LE\\ micro-USB\end{tabular}                         & \begin{tabular}[c]{@{}l@{}}1800 mAh\\ $\sim$30 min\end{tabular}                    & Unknown                                                                                                                    & Gesture input                                                                                               & Linux                                                                           & \begin{tabular}[c]{@{}l@{}}Objects recognition\\ Mapping of environment\end{tabular}                                                             & Unknown \\ \hline
+\begin{tabular}[c]{@{}c@{}}Light Guide Systems\\ Classic \cite{LGS}\end{tabular}        & Projection based                                                                                           & Any PC                                                                                                                   & Color camera                                                                                                                                                                       & \begin{tabular}[c]{@{}l@{}}HDMI\\ USB\end{tabular}                                                                 & AC Powered                                                                         & Unknown                                                                                                                    & Camera feedback                                                                                             & Windows™                                                                        & \begin{tabular}[c]{@{}l@{}}Augmentation of workstation\\ Task guidance\\ Automatic part assembly check\\ Production time recording\end{tabular} & Unknown \\ \hline
+\begin{tabular}[c]{@{}c@{}}Magic Leap\\ One \cite{MagicLeap}\end{tabular}                     & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 1280x960 px per eye\\ 50 degrees view angle\end{tabular}  & \begin{tabular}[c]{@{}l@{}}CPU: NVIDIA® Parker\\ GPU: NVIDIA Pascal™\\ 8 GB RAM\\ 128 GB Storage\end{tabular}            & \begin{tabular}[c]{@{}l@{}}Depth camera\\ Environment understanding cameras\\ IMU\\ Microphone\\ Onboard Speakers\end{tabular}                                                     & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11ac/b/g/n\\ Bluetooth® 4.2\\ USB-C\end{tabular}                              & $\sim$3 hours                                                                      & Weight: 345 g                                                                                                              & \begin{tabular}[c]{@{}l@{}}Gesture input\\ 6-DOF tracked controllers\\ Voice support\end{tabular}           & Lumin OS                                                                        & \begin{tabular}[c]{@{}l@{}}Mapping of environment\\ Teleoperation\\ 6-DOF tracking\end{tabular}                                                  & \$2,295 \\ \hline
+\begin{tabular}[c]{@{}c@{}}Google Glass\\ Enterprise Edition \cite{Glass}\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Optical see-through\\ 640×360 px\end{tabular}                                   & \begin{tabular}[c]{@{}l@{}}Intel Atom processor\\ 2 GB RAM\\ 32 GB storage\end{tabular}                                  & \begin{tabular}[c]{@{}l@{}}5 MP camera\\ IMU\\ Ambient Light Sensor\\ GPS \& GLONASS\\ Barometer\\ Bone conduction transducer\end{tabular}                                         & \begin{tabular}[c]{@{}l@{}}Wi-Fi 802.11n/ac\\ Bluetooth®\end{tabular}                                              & \begin{tabular}[c]{@{}l@{}}780 mAh\\ $\sim$8 hours\end{tabular}                    & Weight: 36g                                                                                                                & \begin{tabular}[c]{@{}l@{}}Voice commands\\ Touchpad\\ Mobile app\end{tabular}                              & Android™ 4.4                                                                    & \begin{tabular}[c]{@{}l@{}}Teleoperation\\ Assistant\\ Task guidance\end{tabular}                                                               & \$1,500 \\ \hline
 \end{tabular}%
 }
 \caption{List of selected AR goggles models}
@@ -315,34 +328,17 @@ Device name                                                                  & \
 \end{table}
 \end{landscape}
 
-\begin{landscape}
-\begin{table}[]
-\centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline
-Year & 2000 & 2001 & 2002 & 2003 & 2004 & 2005 & 2006 & 2007 & 2008 & 2009 & 2010 \\
-\hline
-GPD in billions & 235  &  225 bn & 223 bn & 323 & 423  & 523 & 624 & 725 & 826  & 924  & 1022  \\
-\hline
-\end{tabular}
-}
-\caption{Placeholder}
-\label{tab:ARSoftware}
-\end{table}
-\end{landscape}
-
 \chapter{Applications of Augmented Reality}
-This part of thesis will be presenting some founded on internet publications about using AR in robotics applications. It should give a pretty good look at what this technology is created for and suggest what areas have not yet been researched.
+This chapter presents some found on the internet publications about using AR in robotics applications. It should allow to acquaint with the possibilities of this technology and suggest what areas have not been researched yet.
 
 \section{ARDebug}
-The first issue raised will be the use of AR to visualize the parameters of individual robotic swarm units basing on research paper \cite{ARDebug} created by scientists from York Robotics Laboratory. The tool presented by them could help to easier find bugs in implemented algorithms by giving real-time visual feedback basing on each robot state.
+The first issue raised will be the use of AR to visualize the parameters of individual robotic swarm units basing on research paper \cite{ARDebug} created by scientists from York Robotics Laboratory. The tool presented by them could help easier to find bugs in implemented algorithms by giving real-time visual feedback based on each robot state.
 
-The configuration of the environment requires the use of a locating system. Researchers for this purposes used an 5 MP camera which was placed 2.5 m above center of operating area and the ArUco markers placed on robots. Then, using the algorithms built into the OpenCV library, they determine their position. The data obtained in this way was packed in the JSON structure with is accepted by ARDebug application. Authors deliberately chose this format to allow easy integration of other location methods.
+The configuration of the environment requires the use of a locating system. Researchers used for this purposes a 5 MP camera which was placed 2.5 m above the center of operating area and the ArUco markers placed on robots. Then, using the algorithms built into the OpenCV library, they determine their position. The data obtained this way was packed in JSON structure which is accepted by ARDebug application. Authors deliberately chose this format to allow easy integration other location methods.
 
-Another element required by the application is data of the status of each robot. They must also be provided in JSON format over Wi-Fi or Bluetooth to the supervising computer.
+Another element required by the application is data of the status of each robot. They also must be provided in JSON format over Wi-Fi or Bluetooth to the supervising computer.
 
-After collecting all the information ARDebug imposes on video from camera, data acquired from tracking system and robot. Additionally, it presents them in the form of tables with key value representation and graphs. Example view from this program is presented at figure \ref{fig:ARDebug}.
+After collecting all the information ARDebug imposes on video from camera, data acquired from tracking system and robot. Additionally, it presents them in the form of tables with key value representation and graphs. Example view from this program is presented in Figure \ref{fig:ARDebug}.
 
 \begin{figure}[!ht]
   \centering
@@ -352,11 +348,11 @@ After collecting all the information ARDebug imposes on video from camera, data 
 \end{figure}
 
 \section{Virtual sensing technology}
-Another discussed issue was also created to improve and speed up the testing of algorithms written for the purpose of robotic swarms. This time, the research work \cite{ARGoS} of scientists from Universit ́ Libre de Bruxelles was examined. In this paper they describe created by them system ARGoS with allow to simulate sensors input without having installed real ones. This approach significantly reduces the costs of testing a large number of robots by decreasing the amount of components needed per unit. In addition, it offers the possibility of flexible configuration of the sensors work range without any hardware modifications.
+Another issue was also created to improve and speed up the testing of algorithms written for the purpose of robotic swarms. This time, the research work \cite{ARGoS} of scientists from Universit ́ Libre de Bruxelles was examined. In this paper they describe created by them system ARGoS which allows to simulate sensors input without having installed real sensors. This approach significantly reduces the costs of testing a large number of robots by decreasing the amount of components needed per unit. In addition, it offers the possibility of flexible configuration of the sensors work range without any hardware modifications.
 
-Like in previous system there is also need of reading robots positions. It was realized in the same way, that is, by using a camera suspended above the working area and markers on tracked units. The data collected in this way is used to reproduce the scene in the simulator. Then virtual sensor modules calculate their outputs and provide wireless this information to real robots.
+Like in the previous system there is also need of reading robots positions. It was realized in the same way, by using a camera suspended above the working area and markers on tracked units. The data collected in this way is used to reproduce the scene in the simulator. Then virtual sensor modules calculate their outputs and provide wireless this information to real robots.
 
-Whole process could be viewed in three perspectives. First one is virtual environment, second AR video-mixing and third by lighting LEDs on real robots. Output of the system could be seen na figure \ref{fig:ARGoS}.
+Whole process could be viewed in three perspectives. First one is virtual environment, second AR video-mixing and third by lighting LEDs on real robots. Output of the system can be seen in Figure \ref{fig:ARGoS}.
 
 \begin{figure}[!ht]
   \centering
@@ -366,9 +362,9 @@ Whole process could be viewed in three perspectives. First one is virtual enviro
 \end{figure}
 
 \section{Interactive Spatial AR in Collaborative Robot Programming}
-Scientists from Brno University of Technology decided to explore the subject of human cooperation with the machine. In their paper \cite{SpatialARCollaborative} described was concept of utilization of shared workspace as a interactive space with could be used to visualize and control movements of collaborative robot. The goal was to create system which will simplify programming to such level that every ordinary skilled worker could customize robot's behavior and adopt it to current work or preferences.
+Scientists from Brno University of Technology decided to explore the subject of human cooperation with machines. In their paper \cite{SpatialARCollaborative} they described a concept of utilization of shared workspace as an interactive space which could be used to visualize and control movements of collaborative robot. The goal was to create a system which will simplify programming to such level that every ordinary skilled worker could customize robot's behavior and adopt it to current work or preferences.
 
-Researchers to test different solutions have created a easy to deploy and modular stand. It consisted of standard workshop table with capacitive touch foil on it, PR2 collaborative robot, Microsoft Kinect V2 depth sensors, two speakers and truss with projector hanging on it. Complete setup could be seen on figure \ref{fig:spatialARdesk}.
+To test different solutions the researchers have created an easy to deploy and modular stand. It consisted of standard workshop table with capacitive touch foil on it, PR2 collaborative robot, Microsoft Kinect V2 depth sensors, two speakers and truss with projector hanging on it. Complete setup can be seen in Figure \ref{fig:spatialARdesk}.
 
 \begin{figure}[!ht]
   \centering
@@ -377,19 +373,19 @@ Researchers to test different solutions have created a easy to deploy and modula
   \label{fig:spatialARdesk}
 \end{figure}
 
-Prepared elements changes shared workspace into interactive display. Thanks to this, the employee can mark the work areas of the robot in a very intuitive way and give him instructions by using simple GUI. Also this approach allows him to continuously observe what decisions robot is making without looking away from his job.
+Prepared elements change shared workspace into interactive display. Thanks to this, employee can mark the work areas of the robot in a very intuitive way and give him instructions by using simple GUI. Also this approach allows him to continuously observe what decisions robot is making without looking away from his job.
 
-The authors carried out research on a group of people to check whether the applied solution introduces a sense of safety when working with collaborative robots. It finds out that almost every participant assessed positively their work, however they also point out that GUI should be improved.
+The authors carried out research on a group of people to check whether the applied solution introduces a sense of safety when working with collaborative robots. It was found out that almost every participant assessed positively their work, however they also point out that GUI should be improved.
 
-\chapter{Research of the subject}
+\chapter{Implementation of AR in robotics}
 The aim of the study was to investigate the possibility of using augmented reality in robotics. For this purpose, several issues related to stationary and mobile robots were selected.
 
-In the first case, it was decided to create an user interface that would allow to remotely control the position of the robotic arm using gestures. Thanks to this, working from a safe distance, the operator is able to set a trajectory of motion along the points, simultaneously observing the behavior of the machine.
+In the first case, it was decided to create a user interface that would allow to remotely control the position of the robotic arm using gestures. Thanks to this, the operator is able to set a trajectory of motion along the points, working from a safe distance and simultaneously observing the behavior of the machine.
 
-In the case of mobile robots, the topics of visualization of sensory data and route planning were examined. Displaying in real time sensors reading in user environment could help with debugging some hardware or software issues. Also being able to see waypoints of robot on the floor could help to check if it will not hit any obstacle.
+In the case of mobile robots, the topics of visualization of sensory data and route planning were examined. Displaying in real time sensors readings in user environment could help with debugging some hardware or software issues. Also being able to see waypoints of a robot on a floor can help to check if the robot is not going to hit any obstacle.
 
 \section{Used technologies}
-In order to implement selected tasks, it was decided to use the augmented reality goggles for this purpose. The choice fell on Microsoft Hololens due to the good performance, tracking quality and the ability to loan them for testing. Picture of them could be seen on figure \ref{fig:hololensGoggles}. Technical parameters was presented earlier in the table \ref{tab:hardwareDevices}.
+In order to implement selected tasks, it was decided to use the augmented reality goggles for this purpose. The choice fell on Microsoft Hololens due to the good performance, tracking quality and the ability to loan them for testing. Picture of them can be seen in Figure \ref{fig:hololensGoggles}. Technical parameters was presented earlier in the table \ref{tab:hardwareDevices}.
 
 \begin{figure}[!ht]
   \centering
@@ -399,9 +395,9 @@ In order to implement selected tasks, it was decided to use the augmented realit
 \end{figure}
 
 \subsection{3D Engine}
-Application for Hololens could be written in every programming language which has support for Universal Windows Platform API. However, due to the fact that goggles are working in a 3D environment, developer also need a graphics engine to be able to create spatial applications. On the market there are two main competitors which is Unreal Engine and Unity Engine. First one in a subjective sense, is more intuitive and provides a better visuals. Also allow to have more control on code execution, due to possibility of writing backend in C++. Unfortunately it do not have good support from Microsoft side for Hololens that is why it was not chosen to do this tasks.
+Application for Hololens could be written in every programming language which has support for Universal Windows Platform API. However, due to the fact that goggles are working in a 3D environment, developer also need a graphics engine to be able to create spatial applications. On the market there are two main competitors which is Unreal Engine and Unity Engine. First one in a subjective sense, is more intuitive and provides a better visuals. In addition, it gives better control over code execution, due to possibility of writing backend in C++. Unfortunately it does not have good support from Microsoft side for Hololens that is why it was not chosen to do this tasks.
 
-On the other hand, Unity thanks to a large community is easy to learn. Many tutorials helps programmers quite fast get familiar with user interface (Figure \ref{fig:unityUI}) and give ability to start deploying their first apps, even without writing a single line of code. However, for every non standard behavior need to be created C\# script file.
+On the other hand, Unity thanks to a large community is easy to learn. Many tutorials helps programmers quite fast get familiar with user interface (Figure \ref{fig:unityUI}) and give ability to start deploying their first apps, even without writing a single line of code. However, for every non standard behavior a C\# script file needs to be created.
 
 \begin{figure}[!ht]
   \centering
@@ -410,15 +406,15 @@ On the other hand, Unity thanks to a large community is easy to learn. Many tuto
   \label{fig:unityUI}
 \end{figure}
 
-Developing applications for Microsoft Hololens in the Unity Engine has additional advantages in terms of the availability of the HoloToolkit library. It allows you to easily use advanced goggles functions such as location or gesture support by using already prepared assets or scripts. The only thing a programmer has to do is pin the function he needs to the object.
+Developing an applications for Microsoft Hololens in the Unity Engine has additional advantages in terms of the availability of the HoloToolkit library. It allows user to easily use advanced goggles functions such as location or gesture support by using already prepared assets or scripts. The only thing a programmer has to do is to pin the function he needs to the object.
 
 \subsection{Vuforia}
 Vuforia is an multiplatform Engine which uses advanced computer vision algorithms to bring AR experience to almost every kind of application. Using it, it is possible to locate and track position of device basing on the 2D markers/images or provided 3D models of real objects. Thanks to that user is able to see on the screen elements created in 3D environment in a real world. All features of the engine was presented in table \ref{tab:ARSoftware}
 
-The decision to use this software was made for two reasons. The first one was easy integration with unity environment and second one was possibility to detect not only predefined markers but any kind of image. At figure \ref{fig:featureExtraction} could be seen preprocessed Dobot robotic arm logo with extracted features, which is used in this research.
+The decision to use this software was made for two reasons. The first one was easy integration with unity environment and second one was possibility to detect not only predefined markers but any kind of image. In Figure \ref{fig:featureExtraction} can be seen preprocessed Dobot robotic arm logo with extracted features, which is used in this research.
 
 \subsection{Robotic Operating System}
-Both of used in this research robots was controlled by Robotic Operating System. It is open-source platform with provide software libraries and tools for building robot applications.
+Both of used in this research robots was controlled by Robotic Operating System. It is open-source platform which provides software libraries and tools for building robot applications.
 
 The principle of ROS operation is based on the idea of running many nodes which each of it is representing some behavior. In example one of them could read some sensor data, process it and at the end share it with others. Communication system between nodes is based on asynchronous anonymous publish/subscribe mechanism (Figure \ref{fig:ros}). Thanks to that we get a flexible and modular platform which allows us to configure any data flow we want. However, not all operations can be performed in an asynchronous manner. To this end, ROS also provides a synchronous request/response mechanism called services.
 
@@ -429,7 +425,7 @@ The principle of ROS operation is based on the idea of running many nodes which 
   \label{fig:ros}
 \end{figure}
 
-Another great feature is also ability to record and playback messages. As the data in system is shared by publish/subscribe mechanism there is easy way to capture them in example on real robots and then replay on offline machine without any changes in code. In combination with tools like rviz we are able to recreate and visualize all robots behaviors without having access to them.
+Another great feature is also ability to record and playback messages. As the data in the system is shared by publish/subscribe mechanism there is easy way to capture them in example on real robots and then replay on offline machine without any changes in code. In combination with tools like rviz we are able to recreate and visualize all robots behaviors without having access to them.
 
 Connection between ROS and external system could be realized by ROSBridge. This library is able to create server which could send and receive data in JSON format. Each frame is containing object name, topic/service name, messageType and optional payload. Such a simple solution allows for easy implementation of the client on any device. That is why this tool was used in the research to be able to exchange data between ROS and Unity Engine.
 
@@ -438,7 +434,7 @@ Connection between ROS and external system could be realized by ROSBridge. This 
 \subsection{Robotic arm}
 The tools presented in the previous section were used to implement the task set at the beginning of the chapter. Thanks to the created application, the user is able to move the virtual object in space by means of gestures, which is then followed by the effector of the robotic arm. The selected positions could be memorized and in this way motion sequences could be created.
 
-The robot used in this part is called Dobot Magician \cite{dobot}. This is simple desk robotic arm with 3 degrees of freedom and the possibility of replacing the effectors. All axis are driven by stepper motors so before use in needs firstly perform homing action. It could be seen at figure \ref{fig:dobot}.
+The robot used in this part is called Dobot Magician \cite{dobot}. This a simple desk robotic arm with 3 degrees of freedom and the possibility of replacing the effectors. All axis are driven by stepper motors so before use in needs firstly perform homing action. The robot can be seen in Figure \ref{fig:dobot}.
 
 \begin{figure}[!ht]
   \centering
@@ -447,13 +443,20 @@ The robot used in this part is called Dobot Magician \cite{dobot}. This is simpl
   \label{fig:dobot}
 \end{figure}
 
-As mentioned before, the application was created in Unity using the Holotoolkit library. As far as the supplied elements allowed for trouble-free operation of the peripherals provided by goggle sensors, connecting them with ROS required adding one's own module. It was written as a C\# script, in which the websocket connection to the ROSBridge server was opened. Then there was need to create protocol layer which will pack data into proper JSON messages. Their use allowed creating two-way communication between the robot and the application in Unity.
+As mentioned before, the application was created in Unity using the Holotoolkit library. As far as the supplied elements allowed for trouble-free operation of the peripherals provided by goggle sensors, connecting them with ROS required adding one's own module. It was written as a C\# script, in which the websocket connection to the ROSBridge server was opened. Then there was need to create protocol layer which will pack data into proper JSON messages. Their use allowed creating two-way communication between the robot and the application in Unity (Figure \ref{fig:ROSBridge}).
+
+\begin{figure}[!ht]
+  \centering
+    \includegraphics[width=0.8\textwidth]{ROSBridge}
+  \caption{Example of connection between ROS and Unity via ROSBridge}
+  \label{fig:ROSBridge}
+\end{figure}
 
 With the ability to exchange data with ROS, implementations of the basic assumptions have started. Initially, the coordinate systems of the robot and goggles had to be synchronized so that the objects oriented in the virtual space would correspond to reality. For this purpose, the aforementioned Vuforia library was used. Created marker need to be placed in exact same position in front of robotic arm as it was set in Unity 3D environment. Thanks to that all objects will appear just in a right spot.
 
 Next task was to create a 3D cube and bind its position with the position of the robot effector taken from ROS. This test allowed to observe that the coordinate axes of the robot are pointing in other directions than Unity one's. To facilitate the later work, another script dealing with bidirectional transformation was written.
 
-After application was able to receive an position from the robot, a part of the code allowing its setting was written. In this case gesture recognition module from HoloToolkit library was used. It allows to capture event when particular gesture is occurring and extract from it information about relative position of hand. Using this from the perspective of the code, we are able to add a hand translation vector to the position vector of the selected object which will appear as its shift in space. This allow to move previously created cube, then reads it position and at the end write it to robot. That part works very well. On figure \ref{fig:armMove} could be seen screenshots from hololens with different positions set.
+After the application was able to receive a position from the robot, a part of the code allowing its setting was written. In this case gesture recognition module from HoloToolkit library was used. It allows to capture event when particular gesture is occurring and extract from it information about relative position of hand. Using this from the perspective of the code, we are able to add a hand translation vector to the position vector of the selected object which will appear as its shift in space. This allows to move previously created cube, then reads it position and at the end write it to robot. That part works very well. In Figure \ref{fig:armMove} screenshots from hololens with different positions set can be seen.
 
 \begin{figure}[!ht]
 \centering
@@ -473,14 +476,14 @@ After application was able to receive an position from the robot, a part of the 
 \label{fig:armMove}
 \end{figure}
 
-Last part of the task was to give ability to store set positions, draw path between them and at the end be able to automatically replay sequence of movements. For this purpose an click gesture was used. When user set desired position by dragging followed by robot object then he could click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot.
+Last part of the task was to give ability to store set positions, draw path between them and at the end to be able to automatically replay a sequence of movements. For this purpose click gesture was used. When user set desired position by dragging followed by robot object then he can click on it. This event will instantiate a sphere at that place to visualize and store position. In addition, a path is drawn between the next steps to present the movement of the robot.
 
 \subsection{Mobile robot}
 In this part of research, connection between Unity and ROS was done in the same way like in case of robotic arm. The only difference between them was number of supported messages types. It was need to be extend to be able to receive sensors data.
 
 This task required one basic assumption, that is, the robot had to be able to locate itself. Unfortunately, the camera built into the Hololens does not have a very high resolution so that it would not be able to provide location information in sufficient accuracy. Therefore, the marker on the robot only serves to synchronize the coordinate systems with goggles. Again like in robotic arm experiment it is detected by Vuforia Engine.
 
-Robot used in this part of research is called TurtleBot3 Waffle \cite{turtlebot}. This is a open-source, open-hardware modular platform which allow to quickly test new ideas and algorithms. His heart is Raspberry Pi 3 with ROS installed on it. Two digital servos from dynamixel are used to drive the wheels. It also has LiDAR installed. Picture of robot could be find at figure \ref{fig:turtlebot}.
+Robot used in this part of research is called TurtleBot3 Waffle \cite{turtlebot}. This is a open-source, open-hardware modular platform which allow to quickly test new ideas and algorithms. His heart is Raspberry Pi 3 with ROS installed on it. Two digital servos from dynamixel are used to drive the wheels. It also has LiDAR installed. Picture of robot can be found in Figure \ref{fig:turtlebot}.
 
 \begin{figure}[!ht]
   \centering
@@ -489,25 +492,27 @@ Robot used in this part of research is called TurtleBot3 Waffle \cite{turtlebot}
   \label{fig:turtlebot}
 \end{figure}
 
-First, the task related to the visualization of sensory data was carried out. Based on the fact that reading information from the robot had already been developed, it was quite easy to get to it. After connection is establish and data is acquired script which was written is generating small spheres and pushes them away from the center of LiDAR at a distance read from the ROS. This give us visual feedback which objects could be seen by given sensor. In this case LiDAR beam could not detect glass doors (Figure \ref{fig:glassDoor}).
+First, the task related to the visualization of sensory data was carried out. Based on the fact that reading information from the robot had already been developed, it was quite easy to get to it. When connection to ROSBridge is established, information about subscription need to be send to the server to obtain data from a specific topic. After performing this operation, values update will be received by given callback function. From there they go to the script which was written to generate small spheres on specific positions corresponding to the read distance data provided by robots LiDAR sensor. This gives visual feedback what objects are seen by it an which are not. In example at Figure \ref{fig:glassDoor} there can be seen erroneous points caused by LiDAR beam reflections on glass doors.
 
 \begin{figure}[!ht]
   \centering
     \includegraphics[width=0.9\textwidth]{glassDoor}
-  \caption{Visualization of LiDAR sensor data}
+  \caption{Visualization of LiDAR sensor data, with visible erroneous points}
   \label{fig:glassDoor}
 \end{figure}
 
-The second task was quite similar to what was done with the robot arm. Prepared application allowed to mark points on the floor to which the robot has to go. From Unity side it was quite easy task. The more complex work was done on robot, because he need to calculate path to be able to reach that point. Fortunately, the built-in ROS libraries came to the rescue and they are able to do this job quite well. The results of this work could be seen at figure \ref{turtlebotMove}.
+The second task was quite similar to what was done with the robot arm. Prepared application allowed to mark points on the floor to which the robot has to go. The C\# script created in Unity uses the click gesture to retrieve the cursor position indicating the place the user is looking at. Then a sphere is instantiate at that place and as long as the gesture is not released, it is possible to change the orientation using the hand movement. The operation is visualized by means of a rotating arrow attached to the created sphere. After completing the gesture, the position and orientation of the selected point from the goggles coordinates to the coordinates of the robot are converted. Finally, a JSON query is created from the obtained data, which is sent via ROSBridge. On robot side there is called move\_base action. This is a node which is linking together local and global planner. Thanks to it, on the basis of data from sensors and odometry, the robot is able to reach the point by solving global navigation task. In Figure \ref{turtlebotMove} there can be seen screenshots from hololens showing placed virtual marker and robot approaching to it.
 
 \chapter{Summary}
-Augmented Reality is super fast growing technology. It allows creating more intuitive user interfaces due to the ability to generate spatial objects. Thanks to its use, it is possible to facilitate a lot of production processes as well as increase work safety. Of course, the use of this technology is much wider than just industrial applications.
+The ways of using augmented reality in robotics presented in this thesis are certainly not exhausting this topic. Due to the relatively early stage of development of this technology, only simple cases were chosen. Nevertheless, all selected tasks have been completed. In each case, the prepared interface allowed to perform the required actions, but usually the precision of movements was not satisfactory. It was influenced by the problem of keeping hand in one place and probably by inaccurate goggles positioning. It is possible that improving some aspects of the proposed user interface would improve this issue.
+
+Returning, however, to the advantages, certainly a big plus was the ability to observe working sensors, so that the user had constant information what does the robot see and what does not at the moment. This allowed several times for faster response in the event of an error in implementation. In addition, tests of the proposed UI were carried out on persons not related to robotics. Each of them spoke very positively about it and was able to operate given unit after a small instructor.\\
+
+Augmented Reality is a super fast growing technology. It allows creating more intuitive user interfaces due to the ability to generate spatial objects. Thanks to its use, it is possible to facilitate a lot of production processes as well as increase work safety. Of course, the use of this technology is much wider than just industrial applications.
 
 Unfortunately, devices that give the best results at the moment are too expensive for the average user and often too uncomfortable to use on a daily basis. Another reason for the low popularity of this technology beyond the price and comfort is still insufficient computing power to generate decent quality materials and problems with the projection of the image with a wide viewing angle. In addition, often the detection of gestures is not as precise as expected by the user. However, thanks to the increasing use of this technology in the industry, newer and newer solutions are introduced which helps to improve all aspects of this technology.
 
 Who knows, it's possible that in the near future these devices will be as popular as today's smartphones and maybe even take over their role.
-
-
 
 \appendix
 
